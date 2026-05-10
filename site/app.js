@@ -14,10 +14,6 @@ const state = {
 
 const els = {
   gallery: document.querySelector("#gallery"),
-  visibleCount: document.querySelector("#visibleCount"),
-  totalCount: document.querySelector("#totalCount"),
-  generatedCount: document.querySelector("#generatedCount"),
-  pendingCount: document.querySelector("#pendingCount"),
   coverageLabel: document.querySelector("#coverageLabel"),
   coverageBar: document.querySelector("#coverageBar"),
   spotlightRail: document.querySelector("#spotlightRail"),
@@ -365,12 +361,7 @@ function renderSpotlight() {
 
 function renderGallery() {
   const generatedCount = state.aesthetics.filter((item) => state.generatedMockups.has(item.id)).length;
-  const pendingCount = Math.max(state.aesthetics.length - generatedCount, 0);
   const coverage = state.aesthetics.length ? Math.round((generatedCount / state.aesthetics.length) * 100) : 0;
-  els.visibleCount.textContent = state.filtered.length.toLocaleString();
-  els.totalCount.textContent = state.aesthetics.length.toLocaleString();
-  els.generatedCount.textContent = generatedCount.toLocaleString();
-  els.pendingCount.textContent = pendingCount.toLocaleString();
   els.coverageLabel.textContent = `${generatedCount.toLocaleString()} / ${state.aesthetics.length.toLocaleString()}`;
   els.coverageBar.style.width = `${coverage}%`;
   els.generatedOnlyButton.classList.toggle("active", state.generatedOnly);
