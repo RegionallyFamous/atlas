@@ -11,6 +11,8 @@ const state = {
   generatedMockups: new Set()
 };
 
+const publicBaseUrl = "https://regionallyfamous.github.io/atlas/";
+
 const layoutByCategory = {
   "Web UI": "product",
   "Graphic Movements": "poster-site",
@@ -370,13 +372,34 @@ function generatedImageMockupMarkup(item) {
   `;
 }
 
+function setMetaContent(selector, value) {
+  const meta = document.querySelector(selector);
+  if (meta) meta.setAttribute("content", value);
+}
+
+function updatePageMeta(item) {
+  const title = `${item.name} WordPress Theme Mockup | WeirdPress Aesthetic Atlas`;
+  const description = `Preview the ${item.name} WordPress homepage direction with palette, typography, layout, and visual system notes.`;
+  const pageUrl = `${publicBaseUrl}mockup.html?id=${encodeURIComponent(item.id)}`;
+  const canonical = document.querySelector('link[rel="canonical"]');
+
+  document.title = title;
+  if (canonical) canonical.setAttribute("href", pageUrl);
+  setMetaContent('meta[name="description"]', description);
+  setMetaContent('meta[property="og:title"]', title);
+  setMetaContent('meta[property="og:description"]', description);
+  setMetaContent('meta[property="og:url"]', pageUrl);
+  setMetaContent('meta[name="twitter:title"]', title);
+  setMetaContent('meta[name="twitter:description"]', description);
+}
+
 function setActiveIndex(index, updateUrl = true) {
   const count = state.aesthetics.length;
   state.activeIndex = ((index % count) + count) % count;
   const item = state.aesthetics[state.activeIndex];
   els.root.innerHTML = fullMockupMarkup(item);
   els.select.value = item.id;
-  document.title = `${item.name} · Full Mockup`;
+  updatePageMeta(item);
   if (updateUrl) {
     const url = new URL(window.location.href);
     url.searchParams.set("id", item.id);

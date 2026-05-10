@@ -20,6 +20,8 @@ The deployed GitHub Pages entry point is the repository root.
 - `mockup.html` - full-page generated homepage mockup for any aesthetic via `?id=`.
 - `mockup.css` - high-fidelity full mockup layouts and visual treatments.
 - `mockup.js` - renders the selected aesthetic as a complete WordPress-style homepage.
+- `assets/meta/` - favicon, app icons, and social preview artwork.
+- `robots.txt`, `sitemap.xml`, `site.webmanifest` - SEO, crawler, and install metadata.
 - `assets/aesthetic-mockups-webp/` - web-optimized visual mockups used by the published atlas.
 - `assets/ui-webp/` - optimized generated UI artwork for the atlas masthead.
 - `assets/aesthetic-mockups/` - local source PNG mockups, intentionally not required for the published site.

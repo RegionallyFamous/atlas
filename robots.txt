@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://regionallyfamous.github.io/atlas/sitemap.xml
