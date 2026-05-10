@@ -1,0 +1,351 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://weirdpress.local/schemas/visual-style-database.schema.json",
+  "title": "WeirdPress Visual Style Database",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "purpose",
+    "wordpressTarget",
+    "sourceNotes",
+    "tokenContract",
+    "styles"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "wordpressTarget": {
+      "type": "string"
+    },
+    "sourceNotes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "url"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "tokenContract": {
+      "type": "object",
+      "required": [
+        "paletteRoles",
+        "themeJsonHints"
+      ],
+      "properties": {
+        "paletteRoles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "themeJsonHints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "styles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "status",
+          "summary",
+          "tags",
+          "bestFor",
+          "avoidFor",
+          "mood",
+          "designDna",
+          "palette",
+          "typography",
+          "layout",
+          "imagery",
+          "components",
+          "wordpress",
+          "accessibility",
+          "antiPatterns",
+          "promptSeeds"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "ready",
+              "draft"
+            ]
+          },
+          "summary": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "bestFor": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "avoidFor": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "mood": {
+            "type": "array",
+            "minItems": 3,
+            "items": {
+              "type": "string"
+            }
+          },
+          "designDna": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "palette": {
+            "type": "object",
+            "required": [
+              "strategy",
+              "tokens",
+              "contrastNotes"
+            ],
+            "properties": {
+              "strategy": {
+                "type": "string"
+              },
+              "tokens": {
+                "type": "array",
+                "minItems": 5,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "role",
+                    "name",
+                    "slug",
+                    "hex"
+                  ],
+                  "properties": {
+                    "role": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "slug": {
+                      "type": "string"
+                    },
+                    "hex": {
+                      "type": "string",
+                      "pattern": "^#[0-9A-Fa-f]{6}$"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "contrastNotes": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "typography": {
+            "type": "object",
+            "required": [
+              "display",
+              "body",
+              "accent",
+              "scale",
+              "usage"
+            ],
+            "properties": {
+              "display": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              },
+              "accent": {
+                "type": "string"
+              },
+              "scale": {
+                "type": "string"
+              },
+              "usage": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "layout": {
+            "type": "object",
+            "required": [
+              "density",
+              "grid",
+              "rhythm",
+              "navigation",
+              "hero"
+            ],
+            "properties": {
+              "density": {
+                "type": "string"
+              },
+              "grid": {
+                "type": "string"
+              },
+              "rhythm": {
+                "type": "string"
+              },
+              "navigation": {
+                "type": "string"
+              },
+              "hero": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "imagery": {
+            "type": "object",
+            "required": [
+              "subjects",
+              "treatment",
+              "crop"
+            ],
+            "properties": {
+              "subjects": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "treatment": {
+                "type": "string"
+              },
+              "crop": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "components": {
+            "type": "object",
+            "required": [
+              "buttons",
+              "cards",
+              "forms",
+              "special"
+            ],
+            "properties": {
+              "buttons": {
+                "type": "string"
+              },
+              "cards": {
+                "type": "string"
+              },
+              "forms": {
+                "type": "string"
+              },
+              "special": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "wordpress": {
+            "type": "object",
+            "required": [
+              "themeJsonPresetHints",
+              "patternIdeas",
+              "templateFocus",
+              "blockStyleTargets"
+            ],
+            "properties": {
+              "themeJsonPresetHints": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "patternIdeas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "templateFocus": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "blockStyleTargets": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "accessibility": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "antiPatterns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "promptSeeds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

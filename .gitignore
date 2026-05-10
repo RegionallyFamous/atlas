@@ -1,0 +1,10 @@
+.DS_Store
+
+# Local/generated working assets not needed by the GitHub Pages build.
+generated/
+assets/aesthetic-mockups/
+assets/shared-wapuu-sports-card-bases/
+assets/wapuu-baseball-cards/
+assets/wapuu-basketball-cards/
+assets/wordpress-tarot-cards/
+assets/ui/

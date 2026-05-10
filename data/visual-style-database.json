@@ -1,0 +1,4558 @@
+{
+  "schemaVersion": "1.0.0",
+  "purpose": "A reusable visual style database for generating distinctive WordPress block themes, style variations, patterns, and theme.json starter tokens.",
+  "wordpressTarget": "WordPress block themes using theme.json version 3 concepts, with guidance that can be adapted for classic themes.",
+  "sourceNotes": [
+    {
+      "label": "WordPress theme.json version 3 reference",
+      "url": "https://developer.wordpress.org/block-editor/reference-guides/theme-json-reference/theme-json-living/"
+    },
+    {
+      "label": "WordPress introduction to theme.json",
+      "url": "https://developer.wordpress.org/themes/global-settings-and-styles/introduction-to-theme-json/"
+    },
+    {
+      "label": "WordPress color settings",
+      "url": "https://developer.wordpress.org/themes/global-settings-and-styles/settings/color/"
+    },
+    {
+      "label": "WordPress typography settings",
+      "url": "https://developer.wordpress.org/themes/global-settings-and-styles/settings/typography/"
+    }
+  ],
+  "tokenContract": {
+    "paletteRoles": [
+      "base",
+      "contrast",
+      "primary",
+      "secondary",
+      "tertiary",
+      "accent",
+      "muted"
+    ],
+    "themeJsonHints": [
+      "Map palette tokens to settings.color.palette entries with stable slugs.",
+      "Map display, body, and accent typography to settings.typography.fontFamilies.",
+      "Use layout, spacing, and pattern notes to create templates, template parts, and block patterns.",
+      "Keep appearanceTools enabled for exploratory themes, then lock down controls for production theme variants."
+    ]
+  },
+  "styles": [
+    {
+      "id": "brutalist-editorial",
+      "name": "Brutalist Editorial",
+      "status": "ready",
+      "summary": "A raw, type-led publishing style with stark blocks, exposed structure, and a deliberately uncompromising visual rhythm.",
+      "tags": [
+        "editorial",
+        "culture",
+        "high-contrast",
+        "typographic"
+      ],
+      "bestFor": [
+        "independent magazines",
+        "critical essays",
+        "artist collectives",
+        "conference microsites"
+      ],
+      "avoidFor": [
+        "soft wellness brands",
+        "luxury retail",
+        "child-focused sites"
+      ],
+      "mood": [
+        "direct",
+        "literate",
+        "unvarnished",
+        "urgent"
+      ],
+      "designDna": [
+        "oversized headlines",
+        "hard borders",
+        "asymmetric columns",
+        "visible content hierarchy",
+        "minimal decoration"
+      ],
+      "palette": {
+        "strategy": "Near monochrome with one acidic signal color for links, calls to action, and issue labels.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Newsprint",
+            "slug": "newsprint",
+            "hex": "#F6F2E8"
+          },
+          {
+            "role": "contrast",
+            "name": "Ink",
+            "slug": "ink",
+            "hex": "#111111"
+          },
+          {
+            "role": "primary",
+            "name": "Signal Red",
+            "slug": "signal-red",
+            "hex": "#E1261C"
+          },
+          {
+            "role": "secondary",
+            "name": "Concrete",
+            "slug": "concrete",
+            "hex": "#B9B6AB"
+          },
+          {
+            "role": "muted",
+            "name": "Dust",
+            "slug": "dust",
+            "hex": "#DED8C7"
+          }
+        ],
+        "contrastNotes": "Use Ink on Newsprint for body copy. Reserve Signal Red for large text, underlines, borders, and filled buttons with Ink text."
+      },
+      "typography": {
+        "display": "Condensed grotesk or impact sans stack: Impact, Haettenschweiler, Arial Narrow, sans-serif.",
+        "body": "Readable sans stack: Arial, Helvetica Neue, Helvetica, sans-serif.",
+        "accent": "Monospace stack: IBM Plex Mono, ui-monospace, SFMono-Regular, Menlo, monospace.",
+        "scale": "Aggressive fluid scale with very large h1 and tight h2/h3 steps.",
+        "usage": "Let display type do the visual work; use mono for issue numbers, dates, tags, and metadata."
+      },
+      "layout": {
+        "density": "Dense but legible.",
+        "grid": "Twelve-column desktop grid with abrupt two-column article intros and full-width pull quotes.",
+        "rhythm": "Tight vertical rhythm with generous breaks before major sections.",
+        "navigation": "Plain text nav in a hard bordered header, no decorative logo lockup required.",
+        "hero": "Huge title, small deck, and one uncompromising image or flat color block."
+      },
+      "imagery": {
+        "subjects": [
+          "documentary photography",
+          "scanned paper",
+          "raw event images",
+          "black-and-white portraits"
+        ],
+        "treatment": "High contrast, little smoothing, occasional halftone or xerox texture.",
+        "crop": "Uncomfortable crops are acceptable when the headline remains dominant."
+      },
+      "components": {
+        "buttons": "Rectangular, hard-border, uppercase or mono labels.",
+        "cards": "Article cards use border-only containers or no container, with metadata pinned to the top.",
+        "forms": "Square inputs with thick borders, visible labels, and blunt error states.",
+        "special": [
+          "issue masthead",
+          "running ticker",
+          "manifesto pull quote",
+          "related essays index"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Disable defaultPalette and register five high-control color presets.",
+          "Enable fluid typography and define a display size that can reach poster scale.",
+          "Set core/post-title and core/query-title styles to the display family."
+        ],
+        "patternIdeas": [
+          "issue hero",
+          "bordered article index",
+          "manifesto quote band",
+          "author debate pair"
+        ],
+        "templateFocus": [
+          "home",
+          "single",
+          "archive",
+          "search"
+        ],
+        "blockStyleTargets": [
+          "core/query",
+          "core/post-title",
+          "core/pullquote",
+          "core/navigation",
+          "core/group"
+        ]
+      },
+      "accessibility": [
+        "Avoid long uppercase paragraphs.",
+        "Keep line length under 75 characters in article bodies.",
+        "Use hover styles that do not rely only on red."
+      ],
+      "antiPatterns": [
+        "soft shadows",
+        "rounded cards",
+        "pastel gradients",
+        "decorative stock imagery"
+      ],
+      "promptSeeds": [
+        "raw independent magazine",
+        "hard grid editorial system",
+        "oversized black typography",
+        "acid red issue labels"
+      ]
+    },
+    {
+      "id": "quiet-saas",
+      "name": "Quiet SaaS",
+      "status": "ready",
+      "summary": "A restrained operational interface style for product sites, docs portals, and app-adjacent marketing that needs trust without visual noise.",
+      "tags": [
+        "saas",
+        "product",
+        "b2b",
+        "minimal"
+      ],
+      "bestFor": [
+        "software companies",
+        "analytics tools",
+        "developer platforms",
+        "service dashboards"
+      ],
+      "avoidFor": [
+        "music festivals",
+        "maximalist campaigns",
+        "youth culture brands"
+      ],
+      "mood": [
+        "calm",
+        "precise",
+        "capable",
+        "unobtrusive"
+      ],
+      "designDna": [
+        "subtle dividers",
+        "compact hierarchy",
+        "clear tables",
+        "restrained surfaces",
+        "system-like spacing"
+      ],
+      "palette": {
+        "strategy": "Neutral interface base with a measured blue-green primary and amber warning accent.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Canvas",
+            "slug": "canvas",
+            "hex": "#F8FAF9"
+          },
+          {
+            "role": "contrast",
+            "name": "Graphite",
+            "slug": "graphite",
+            "hex": "#18201E"
+          },
+          {
+            "role": "primary",
+            "name": "Teal Signal",
+            "slug": "teal-signal",
+            "hex": "#147D78"
+          },
+          {
+            "role": "secondary",
+            "name": "Mist",
+            "slug": "mist",
+            "hex": "#E6ECEA"
+          },
+          {
+            "role": "accent",
+            "name": "Amber State",
+            "slug": "amber-state",
+            "hex": "#B66B00"
+          }
+        ],
+        "contrastNotes": "Use Graphite text on Canvas or Mist. Teal Signal works for filled controls with white or Canvas text after contrast testing."
+      },
+      "typography": {
+        "display": "Modern humanist sans: Inter, Source Sans 3, system-ui, sans-serif.",
+        "body": "System UI stack for crisp product copy.",
+        "accent": "Mono stack for metrics, version numbers, and code fragments.",
+        "scale": "Modest fluid scale with restrained headings and compact labels.",
+        "usage": "Use weight and spacing instead of decorative type shifts."
+      },
+      "layout": {
+        "density": "Moderately dense.",
+        "grid": "Twelve-column grid with narrow copy columns and structured product panels.",
+        "rhythm": "Consistent 8px spacing logic with larger section bands.",
+        "navigation": "Sticky product nav with compact button group and clear active state.",
+        "hero": "App-like first viewport with product evidence, stats, and one primary action."
+      },
+      "imagery": {
+        "subjects": [
+          "real product screenshots",
+          "data tables",
+          "workflow diagrams",
+          "team process photos"
+        ],
+        "treatment": "Clean, well-lit, minimally cropped. Avoid fake abstract dashboards.",
+        "crop": "Frame interfaces straight-on with enough surrounding context to inspect them."
+      },
+      "components": {
+        "buttons": "Small-radius buttons with icons for actions and clear focus rings.",
+        "cards": "Use cards for discrete feature or metric units only, not whole page sections.",
+        "forms": "Compact labels, helper text, visible validation, and generous hit targets.",
+        "special": [
+          "metric strip",
+          "integration grid",
+          "pricing comparison",
+          "docs callout"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Register compact font sizes for labels, captions, and UI metadata.",
+          "Set contentSize around 720px and wideSize around 1180px.",
+          "Add subtle border and shadow custom tokens for reusable block styles."
+        ],
+        "patternIdeas": [
+          "product proof hero",
+          "feature matrix",
+          "pricing table",
+          "integration directory"
+        ],
+        "templateFocus": [
+          "front-page",
+          "page",
+          "single-doc",
+          "archive"
+        ],
+        "blockStyleTargets": [
+          "core/buttons",
+          "core/table",
+          "core/details",
+          "core/group",
+          "core/navigation"
+        ]
+      },
+      "accessibility": [
+        "Maintain visible focus states on all utility controls.",
+        "Do not place tiny gray copy below 14px.",
+        "Use more than color for status badges."
+      ],
+      "antiPatterns": [
+        "giant decorative hero claims",
+        "fake glass dashboards",
+        "low-contrast gray text",
+        "marketing bloat"
+      ],
+      "promptSeeds": [
+        "quiet operational SaaS",
+        "dense but calm product interface",
+        "subtle teal controls",
+        "real product proof"
+      ]
+    },
+    {
+      "id": "neo-bauhaus-commerce",
+      "name": "Neo Bauhaus Commerce",
+      "status": "ready",
+      "summary": "A geometric store style built from primary forms, rational grids, color blocking, and product-first composition.",
+      "tags": [
+        "commerce",
+        "geometric",
+        "modernist",
+        "bold"
+      ],
+      "bestFor": [
+        "design shops",
+        "home goods",
+        "stationery brands",
+        "fashion accessories"
+      ],
+      "avoidFor": [
+        "legal firms",
+        "medical providers",
+        "subtle luxury"
+      ],
+      "mood": [
+        "bright",
+        "ordered",
+        "playful",
+        "confident"
+      ],
+      "designDna": [
+        "primary shapes",
+        "modular grids",
+        "bold color fields",
+        "clean product cutouts",
+        "asymmetric balance"
+      ],
+      "palette": {
+        "strategy": "Warm neutral base plus saturated red, blue, and yellow used as structural color rather than decoration.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Studio White",
+            "slug": "studio-white",
+            "hex": "#FAF7EF"
+          },
+          {
+            "role": "contrast",
+            "name": "Carbon",
+            "slug": "carbon",
+            "hex": "#171717"
+          },
+          {
+            "role": "primary",
+            "name": "Form Blue",
+            "slug": "form-blue",
+            "hex": "#0057B8"
+          },
+          {
+            "role": "secondary",
+            "name": "Circle Red",
+            "slug": "circle-red",
+            "hex": "#D62828"
+          },
+          {
+            "role": "accent",
+            "name": "Plane Yellow",
+            "slug": "plane-yellow",
+            "hex": "#F2C230"
+          }
+        ],
+        "contrastNotes": "Use Carbon for body copy. Yellow needs dark text. Blue and red should be used with white or Studio White text only after testing."
+      },
+      "typography": {
+        "display": "Geometric sans: Futura-like, Montserrat, Avenir Next, system-ui, sans-serif.",
+        "body": "Neutral sans with strong numerals for prices.",
+        "accent": "Wide uppercase sans for product labels and collection names.",
+        "scale": "Confident h1, compact h2, and strong product title sizes.",
+        "usage": "Mix regular and bold weights instead of using many font families."
+      },
+      "layout": {
+        "density": "Medium.",
+        "grid": "Strict modular product grid with intentional color-block interruptions.",
+        "rhythm": "Even rhythm with occasional full-bleed bands.",
+        "navigation": "Horizontal nav with cart and search as icon-led utilities.",
+        "hero": "Collection hero with product photography sitting on geometric color fields."
+      },
+      "imagery": {
+        "subjects": [
+          "product cutouts",
+          "flat-lay arrangements",
+          "studio objects",
+          "modular sets"
+        ],
+        "treatment": "Crisp shadows, clean backgrounds, and saturated color backdrops.",
+        "crop": "Use square and 4:5 crops that align cleanly to the product grid."
+      },
+      "components": {
+        "buttons": "Rectangular or pill-light buttons with strong color contrast and no ornamental shadows.",
+        "cards": "Product cards are flat, grid-aligned, and image-dominant.",
+        "forms": "Checkout and newsletter forms use boxed fields and clear step hierarchy.",
+        "special": [
+          "collection color band",
+          "shape-based sale badge",
+          "product comparison strip",
+          "lookbook grid"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Create palette slugs that match color role and form names.",
+          "Add block styles for image-background product groups.",
+          "Set WooCommerce/product-grid equivalent blocks to use consistent image aspect ratios when available."
+        ],
+        "patternIdeas": [
+          "collection launch hero",
+          "geometric product grid",
+          "featured category band",
+          "editorial lookbook"
+        ],
+        "templateFocus": [
+          "front-page",
+          "archive-product",
+          "single-product",
+          "cart"
+        ],
+        "blockStyleTargets": [
+          "core/query",
+          "core/image",
+          "core/buttons",
+          "core/columns",
+          "woocommerce/product-collection"
+        ]
+      },
+      "accessibility": [
+        "Do not use color alone to distinguish sale or stock states.",
+        "Keep product text readable over color fields.",
+        "Use clear focus rings on cart and filter controls."
+      ],
+      "antiPatterns": [
+        "random confetti",
+        "rounded bubbly shapes",
+        "weak product photography",
+        "excessive animation"
+      ],
+      "promptSeeds": [
+        "modernist commerce grid",
+        "geometric product system",
+        "Bauhaus-inspired shop",
+        "color-block product launch"
+      ]
+    },
+    {
+      "id": "artisan-market",
+      "name": "Artisan Market",
+      "status": "ready",
+      "summary": "A warm handmade retail style with tactile surfaces, honest product photography, and gentle editorial pacing.",
+      "tags": [
+        "commerce",
+        "handmade",
+        "warm",
+        "local"
+      ],
+      "bestFor": [
+        "craft shops",
+        "ceramics studios",
+        "farm stores",
+        "independent makers"
+      ],
+      "avoidFor": [
+        "cybersecurity",
+        "hard editorial",
+        "premium tech"
+      ],
+      "mood": [
+        "tactile",
+        "welcoming",
+        "grounded",
+        "human"
+      ],
+      "designDna": [
+        "soft paper tones",
+        "textured photography",
+        "handmade imperfections",
+        "generous image captions",
+        "quiet storytelling"
+      ],
+      "palette": {
+        "strategy": "Earthy base with clay, moss, and indigo accents to keep handmade from becoming beige-only.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Oat Paper",
+            "slug": "oat-paper",
+            "hex": "#F4EBDD"
+          },
+          {
+            "role": "contrast",
+            "name": "Walnut Ink",
+            "slug": "walnut-ink",
+            "hex": "#2A211B"
+          },
+          {
+            "role": "primary",
+            "name": "Clay",
+            "slug": "clay",
+            "hex": "#B8613C"
+          },
+          {
+            "role": "secondary",
+            "name": "Moss",
+            "slug": "moss",
+            "hex": "#637A52"
+          },
+          {
+            "role": "accent",
+            "name": "Indigo Stamp",
+            "slug": "indigo-stamp",
+            "hex": "#394E73"
+          }
+        ],
+        "contrastNotes": "Use Walnut Ink for text. Clay needs dark text when used as a pale surface or white text when darkened for buttons."
+      },
+      "typography": {
+        "display": "Soft serif: Fraunces, Lora, Georgia, serif.",
+        "body": "Humanist sans or readable serif depending on product density.",
+        "accent": "Small caps or mono for SKU, batch, origin, and maker labels.",
+        "scale": "Gentle editorial scale with medium h1 and generous paragraph leading.",
+        "usage": "Use serif headings for warmth and sans body for scannable shop flows."
+      },
+      "layout": {
+        "density": "Comfortable.",
+        "grid": "Two to four-column product grids mixed with story-led full-width bands.",
+        "rhythm": "Breathing room between product groups and narrative sections.",
+        "navigation": "Simple shop categories with cart, search, and account utilities.",
+        "hero": "Seasonal product story with one strong photograph and understated copy."
+      },
+      "imagery": {
+        "subjects": [
+          "hands making objects",
+          "workshop details",
+          "natural materials",
+          "finished products in use"
+        ],
+        "treatment": "Natural light, subtle grain, believable color, no heavy filters.",
+        "crop": "Favor 4:5 and landscape process images with visible texture."
+      },
+      "components": {
+        "buttons": "Soft rectangular buttons, not overly pill-shaped, with strong text contrast.",
+        "cards": "Product cards can use paper-toned surfaces and simple captions.",
+        "forms": "Friendly labels, large touch targets, and minimal checkout friction.",
+        "special": [
+          "maker note",
+          "material story",
+          "seasonal collection",
+          "market schedule"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Register palette colors as editor presets so makers can build seasonal pages consistently.",
+          "Define image block styles for framed, captioned, and full-bleed process photography.",
+          "Add paragraph and pullquote styles that support long product stories."
+        ],
+        "patternIdeas": [
+          "maker story hero",
+          "seasonal collection grid",
+          "process image row",
+          "market event footer"
+        ],
+        "templateFocus": [
+          "front-page",
+          "single-product",
+          "page",
+          "archive-product"
+        ],
+        "blockStyleTargets": [
+          "core/image",
+          "core/gallery",
+          "core/quote",
+          "core/buttons",
+          "woocommerce/product-collection"
+        ]
+      },
+      "accessibility": [
+        "Do not rely on low-contrast brown text.",
+        "Keep captions legible over textured backgrounds.",
+        "Make cart and checkout controls visually stronger than decorative links."
+      ],
+      "antiPatterns": [
+        "overly distressed fonts",
+        "fake kraft-paper overload",
+        "tiny cursive labels",
+        "washed-out photography"
+      ],
+      "promptSeeds": [
+        "warm handmade WordPress shop",
+        "tactile craft market",
+        "ceramics studio product story",
+        "earthy editorial commerce"
+      ]
+    },
+    {
+      "id": "luxury-mono-gallery",
+      "name": "Luxury Mono Gallery",
+      "status": "ready",
+      "summary": "A quiet premium style that uses restraint, precision, and image quality instead of decorative excess.",
+      "tags": [
+        "luxury",
+        "portfolio",
+        "gallery",
+        "minimal"
+      ],
+      "bestFor": [
+        "photographers",
+        "architecture firms",
+        "premium objects",
+        "fashion lookbooks"
+      ],
+      "avoidFor": [
+        "budget shops",
+        "community portals",
+        "dense documentation"
+      ],
+      "mood": [
+        "controlled",
+        "elegant",
+        "spacious",
+        "quiet"
+      ],
+      "designDna": [
+        "generous whitespace",
+        "precise type",
+        "slow reveal",
+        "large imagery",
+        "thin rules"
+      ],
+      "palette": {
+        "strategy": "Near-black and warm-white with a restrained metallic accent.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Warm White",
+            "slug": "warm-white",
+            "hex": "#F7F4EF"
+          },
+          {
+            "role": "contrast",
+            "name": "Obsidian",
+            "slug": "obsidian",
+            "hex": "#101010"
+          },
+          {
+            "role": "primary",
+            "name": "Aged Gold",
+            "slug": "aged-gold",
+            "hex": "#9A7A3A"
+          },
+          {
+            "role": "secondary",
+            "name": "Stone",
+            "slug": "stone",
+            "hex": "#CFC9BE"
+          },
+          {
+            "role": "muted",
+            "name": "Soft Black",
+            "slug": "soft-black",
+            "hex": "#252525"
+          }
+        ],
+        "contrastNotes": "Use Obsidian or Soft Black for text. Gold is an accent, not body copy."
+      },
+      "typography": {
+        "display": "High-contrast serif: Cormorant Garamond, Playfair Display, Georgia, serif.",
+        "body": "Elegant sans: Neue Haas-style stack, Helvetica Neue, Arial, sans-serif.",
+        "accent": "Small uppercase tracking in the sans family for labels.",
+        "scale": "Large but composed h1, small metadata, and generous leading.",
+        "usage": "Headlines should be sparse; image captions and project metadata carry detail."
+      },
+      "layout": {
+        "density": "Sparse.",
+        "grid": "Wide single-image compositions with occasional two-column project details.",
+        "rhythm": "Slow vertical rhythm with deliberate pauses.",
+        "navigation": "Minimal wordmark and text links with subtle active states.",
+        "hero": "Full-bleed or near full-bleed image with restrained title placement."
+      },
+      "imagery": {
+        "subjects": [
+          "high-resolution product images",
+          "fashion photography",
+          "interior details",
+          "architectural spaces"
+        ],
+        "treatment": "Natural tonal depth, no heavy overlays, no generic blur.",
+        "crop": "Let images breathe; avoid cropping away the object or space being sold."
+      },
+      "components": {
+        "buttons": "Text-link buttons or thin-outline buttons with refined hover states.",
+        "cards": "Avoid conventional cards; use image plus caption groupings.",
+        "forms": "Minimal fields with clear labels and calm validation.",
+        "special": [
+          "project index",
+          "lookbook spread",
+          "press quote",
+          "private inquiry form"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Use wideSize generously, often 1320px or wider.",
+          "Create image block styles for edge-to-edge, inset, and captioned gallery modes.",
+          "Define custom spacing presets with large section gaps."
+        ],
+        "patternIdeas": [
+          "gallery hero",
+          "project detail spread",
+          "lookbook sequence",
+          "inquiry band"
+        ],
+        "templateFocus": [
+          "front-page",
+          "single",
+          "page",
+          "archive"
+        ],
+        "blockStyleTargets": [
+          "core/image",
+          "core/gallery",
+          "core/post-featured-image",
+          "core/navigation",
+          "core/buttons"
+        ]
+      },
+      "accessibility": [
+        "Do not make navigation too faint.",
+        "Provide text alternatives for image-led project pages.",
+        "Ensure thin outline buttons have sufficient contrast."
+      ],
+      "antiPatterns": [
+        "gold gradients",
+        "script fonts",
+        "overlapping image carousels",
+        "fake luxury texture"
+      ],
+      "promptSeeds": [
+        "quiet luxury gallery",
+        "premium monochrome portfolio",
+        "spacious image-led theme",
+        "refined editorial commerce"
+      ]
+    },
+    {
+      "id": "civic-public-service",
+      "name": "Civic Public Service",
+      "status": "ready",
+      "summary": "A clear, durable public-information style built for trust, accessibility, and fast wayfinding.",
+      "tags": [
+        "government",
+        "nonprofit",
+        "civic",
+        "accessible"
+      ],
+      "bestFor": [
+        "municipal sites",
+        "public services",
+        "community programs",
+        "resource directories"
+      ],
+      "avoidFor": [
+        "experimental portfolios",
+        "luxury brands",
+        "image-led lookbooks"
+      ],
+      "mood": [
+        "trustworthy",
+        "plainspoken",
+        "helpful",
+        "stable"
+      ],
+      "designDna": [
+        "clear page titles",
+        "service directories",
+        "prominent search",
+        "strong link states",
+        "plain language"
+      ],
+      "palette": {
+        "strategy": "Civic blue and green on a bright neutral base, with yellow reserved for alerts.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Public White",
+            "slug": "public-white",
+            "hex": "#FFFFFF"
+          },
+          {
+            "role": "contrast",
+            "name": "Civic Navy",
+            "slug": "civic-navy",
+            "hex": "#102A43"
+          },
+          {
+            "role": "primary",
+            "name": "Service Blue",
+            "slug": "service-blue",
+            "hex": "#1261A6"
+          },
+          {
+            "role": "secondary",
+            "name": "Park Green",
+            "slug": "park-green",
+            "hex": "#2F7D5C"
+          },
+          {
+            "role": "accent",
+            "name": "Alert Yellow",
+            "slug": "alert-yellow",
+            "hex": "#F6C343"
+          }
+        ],
+        "contrastNotes": "Use Civic Navy for body text. Alert Yellow needs dark text and should signal status only when paired with labels."
+      },
+      "typography": {
+        "display": "Accessible sans: Atkinson Hyperlegible, Source Sans 3, Arial, sans-serif.",
+        "body": "Same family as display for consistency and readability.",
+        "accent": "Mono or tabular numerals for office hours, case numbers, and public data.",
+        "scale": "Practical scale with clear h1/h2 hierarchy and readable small text.",
+        "usage": "Favor clarity and scan speed over brand flourish."
+      },
+      "layout": {
+        "density": "Information-dense with clear grouping.",
+        "grid": "Directory-first grid with prominent search and service cards.",
+        "rhythm": "Predictable spacing and visible section boundaries.",
+        "navigation": "Utility-heavy header with search, language, contact, and emergency links.",
+        "hero": "Task-oriented page intro with search or top services, not decorative messaging."
+      },
+      "imagery": {
+        "subjects": [
+          "real public places",
+          "staff at work",
+          "maps",
+          "service icons"
+        ],
+        "treatment": "Honest, bright, documentary; icons must be simple and recognizable.",
+        "crop": "Use practical crops that support orientation and service recognition."
+      },
+      "components": {
+        "buttons": "High-contrast task buttons with clear verbs.",
+        "cards": "Service cards with title, description, and action link; no vague teaser cards.",
+        "forms": "Accessible labels, required field clarity, progress indicators, and error summary.",
+        "special": [
+          "emergency alert",
+          "service finder",
+          "office hours table",
+          "document download list"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Prioritize readable font sizes and strong link styles in global styles.",
+          "Add block styles for alert, service card, and document list groups.",
+          "Use patterns for reusable service-directory sections."
+        ],
+        "patternIdeas": [
+          "top tasks",
+          "service directory",
+          "alert banner",
+          "contact office card"
+        ],
+        "templateFocus": [
+          "home",
+          "page",
+          "search",
+          "archive"
+        ],
+        "blockStyleTargets": [
+          "core/search",
+          "core/navigation",
+          "core/table",
+          "core/list",
+          "core/group"
+        ]
+      },
+      "accessibility": [
+        "Meet strong contrast targets by default.",
+        "Keep links visibly underlined in content.",
+        "Design forms with error summaries and field-level guidance."
+      ],
+      "antiPatterns": [
+        "image-only navigation",
+        "low-contrast blue links",
+        "ambiguous icons",
+        "marketing-first homepages"
+      ],
+      "promptSeeds": [
+        "accessible public service WordPress theme",
+        "task-oriented civic site",
+        "clear service directory",
+        "trustworthy municipal design"
+      ]
+    },
+    {
+      "id": "retro-terminal",
+      "name": "Retro Terminal",
+      "status": "ready",
+      "summary": "A code-forward visual style inspired by command lines, early computing, monospace rhythm, and phosphor glow restraint.",
+      "tags": [
+        "developer",
+        "retro",
+        "monospace",
+        "dark"
+      ],
+      "bestFor": [
+        "developer blogs",
+        "security projects",
+        "open-source tools",
+        "experimental documentation"
+      ],
+      "avoidFor": [
+        "healthcare",
+        "luxury retail",
+        "longform general-interest publishing"
+      ],
+      "mood": [
+        "technical",
+        "focused",
+        "nostalgic",
+        "sharp"
+      ],
+      "designDna": [
+        "monospace type",
+        "terminal panels",
+        "command prompts",
+        "grid overlays",
+        "low-chroma glow"
+      ],
+      "palette": {
+        "strategy": "Deep terminal background with green, amber, and cyan accents kept under control.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Terminal Black",
+            "slug": "terminal-black",
+            "hex": "#07110D"
+          },
+          {
+            "role": "contrast",
+            "name": "Phosphor",
+            "slug": "phosphor",
+            "hex": "#D7FBE8"
+          },
+          {
+            "role": "primary",
+            "name": "Prompt Green",
+            "slug": "prompt-green",
+            "hex": "#24D17E"
+          },
+          {
+            "role": "secondary",
+            "name": "Amber Cursor",
+            "slug": "amber-cursor",
+            "hex": "#F4B942"
+          },
+          {
+            "role": "accent",
+            "name": "Cyan Link",
+            "slug": "cyan-link",
+            "hex": "#46D9FF"
+          }
+        ],
+        "contrastNotes": "Use Phosphor for readable text, not neon green body copy. Glow effects should never reduce text clarity."
+      },
+      "typography": {
+        "display": "Monospace display: IBM Plex Mono, JetBrains Mono, ui-monospace, monospace.",
+        "body": "Readable mono for short text or system sans for long docs.",
+        "accent": "Same mono family with tabular numerals and command-like prefixes.",
+        "scale": "Moderate scale with strong code block and preformatted text defaults.",
+        "usage": "Use mono for identity; switch long explanatory copy to sans if readability suffers."
+      },
+      "layout": {
+        "density": "Compact.",
+        "grid": "Terminal-like panels arranged in responsive columns.",
+        "rhythm": "Consistent line-height rhythm that echoes code editors.",
+        "navigation": "Prompt-style links or compact top bar with status indicator.",
+        "hero": "Command output hero with project statement and quick-start commands."
+      },
+      "imagery": {
+        "subjects": [
+          "code screenshots",
+          "terminal output",
+          "technical diagrams",
+          "hardware details"
+        ],
+        "treatment": "Crisp, dark, minimal scanline or CRT texture only when subtle.",
+        "crop": "Use horizontal screenshots and wide code panels that do not shrink text too far."
+      },
+      "components": {
+        "buttons": "Terminal command buttons with brackets, carets, or compact icon labels.",
+        "cards": "Panel cards with thin borders and header bars.",
+        "forms": "Command-palette inspired inputs with strong caret and focus states.",
+        "special": [
+          "quick-start command",
+          "release notes panel",
+          "status badge",
+          "changelog timeline"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Style core/code and core/preformatted blocks as first-class visual elements.",
+          "Register dark palette presets and avoid relying on WordPress default colors.",
+          "Add block styles for terminal panel groups and command callouts."
+        ],
+        "patternIdeas": [
+          "terminal hero",
+          "quick start docs",
+          "release changelog",
+          "feature matrix panel"
+        ],
+        "templateFocus": [
+          "front-page",
+          "single",
+          "page",
+          "archive"
+        ],
+        "blockStyleTargets": [
+          "core/code",
+          "core/preformatted",
+          "core/group",
+          "core/buttons",
+          "core/details"
+        ]
+      },
+      "accessibility": [
+        "Avoid low-contrast neon on black for body text.",
+        "Do not animate cursor effects in a way that distracts from reading.",
+        "Provide light-mode or print-friendly variants for docs-heavy sites."
+      ],
+      "antiPatterns": [
+        "matrix rain backgrounds",
+        "tiny all-mono paragraphs",
+        "excessive glow",
+        "fake hacking cliches"
+      ],
+      "promptSeeds": [
+        "retro terminal developer theme",
+        "monospace dark documentation",
+        "command-line WordPress style",
+        "phosphor green interface"
+      ]
+    },
+    {
+      "id": "organic-wellness",
+      "name": "Organic Wellness",
+      "status": "ready",
+      "summary": "A grounded wellness style that uses botanical color, gentle spacing, and calm but credible visual systems.",
+      "tags": [
+        "wellness",
+        "health",
+        "botanical",
+        "calm"
+      ],
+      "bestFor": [
+        "therapy practices",
+        "yoga studios",
+        "nutritionists",
+        "retreat centers"
+      ],
+      "avoidFor": [
+        "hard news",
+        "developer tools",
+        "high-energy entertainment"
+      ],
+      "mood": [
+        "steady",
+        "restorative",
+        "natural",
+        "trusting"
+      ],
+      "designDna": [
+        "soft color transitions",
+        "natural photography",
+        "gentle cards",
+        "spacious forms",
+        "calm hierarchy"
+      ],
+      "palette": {
+        "strategy": "Botanical greens and mineral neutrals with coral used sparingly for warmth.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Linen",
+            "slug": "linen",
+            "hex": "#F5F0E7"
+          },
+          {
+            "role": "contrast",
+            "name": "Forest Ink",
+            "slug": "forest-ink",
+            "hex": "#24352D"
+          },
+          {
+            "role": "primary",
+            "name": "Sage",
+            "slug": "sage",
+            "hex": "#7A9272"
+          },
+          {
+            "role": "secondary",
+            "name": "Mineral",
+            "slug": "mineral",
+            "hex": "#B8C6BD"
+          },
+          {
+            "role": "accent",
+            "name": "Coral Tea",
+            "slug": "coral-tea",
+            "hex": "#C87561"
+          }
+        ],
+        "contrastNotes": "Use Forest Ink for copy. Sage and Mineral are better as surfaces than small text colors."
+      },
+      "typography": {
+        "display": "Soft serif or rounded humanist sans: Lora, Fraunces, Avenir, system-ui.",
+        "body": "Readable humanist sans with open counters.",
+        "accent": "Small serif italic or letter-spaced sans for quiet labels.",
+        "scale": "Moderate scale with relaxed line-height and few type sizes.",
+        "usage": "Keep type calm and professional; avoid overly spiritual decorative fonts."
+      },
+      "layout": {
+        "density": "Open.",
+        "grid": "Simple stacked sections with occasional two-column copy and image blocks.",
+        "rhythm": "Large vertical spacing and soft transitions between content types.",
+        "navigation": "Clear appointment or contact action in header.",
+        "hero": "Warm photo plus direct service promise and appointment path."
+      },
+      "imagery": {
+        "subjects": [
+          "real practitioners",
+          "quiet rooms",
+          "natural textures",
+          "botanical details"
+        ],
+        "treatment": "Soft natural light without hazy filters or vague spa imagery.",
+        "crop": "Human-scale crops that create trust and avoid overused stock compositions."
+      },
+      "components": {
+        "buttons": "Rounded but not bubbly, with enough weight to feel actionable.",
+        "cards": "Gentle service cards with muted surfaces and clear outcomes.",
+        "forms": "Spacious booking forms with reassuring copy and visible privacy hints.",
+        "special": [
+          "service pathway",
+          "practitioner bio",
+          "testimonial quote",
+          "appointment callout"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Define soft surface colors as palette presets for Group block backgrounds.",
+          "Add block styles for testimonials, service cards, and appointment callouts.",
+          "Use fluid spacing presets to create calm mobile layouts without huge gaps."
+        ],
+        "patternIdeas": [
+          "practitioner hero",
+          "service path cards",
+          "testimonial band",
+          "booking callout"
+        ],
+        "templateFocus": [
+          "front-page",
+          "page",
+          "single",
+          "contact"
+        ],
+        "blockStyleTargets": [
+          "core/group",
+          "core/quote",
+          "core/buttons",
+          "core/image",
+          "core/columns"
+        ]
+      },
+      "accessibility": [
+        "Avoid pale green text on linen surfaces.",
+        "Keep booking actions prominent and keyboard reachable.",
+        "Make testimonial attribution clear."
+      ],
+      "antiPatterns": [
+        "washed-out beige-only palettes",
+        "tiny cursive script",
+        "vague nature backgrounds behind text",
+        "overly mystical copy"
+      ],
+      "promptSeeds": [
+        "grounded wellness WordPress theme",
+        "botanical service site",
+        "calm appointment-focused design",
+        "soft natural practitioner brand"
+      ]
+    },
+    {
+      "id": "high-gloss-magazine",
+      "name": "High Gloss Magazine",
+      "status": "ready",
+      "summary": "A fashion and culture magazine style with polished image direction, crisp typography, and confident editorial contrast.",
+      "tags": [
+        "magazine",
+        "fashion",
+        "culture",
+        "polished"
+      ],
+      "bestFor": [
+        "style magazines",
+        "culture blogs",
+        "trend reports",
+        "brand journals"
+      ],
+      "avoidFor": [
+        "public-service sites",
+        "dense documentation",
+        "local resource directories"
+      ],
+      "mood": [
+        "glamorous",
+        "sharp",
+        "current",
+        "editorial"
+      ],
+      "designDna": [
+        "dramatic image scale",
+        "thin type contrast",
+        "issue-like story packaging",
+        "bold captions",
+        "modular article grids"
+      ],
+      "palette": {
+        "strategy": "Black and white editorial base with one seasonal color and one soft surface tone.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Gloss White",
+            "slug": "gloss-white",
+            "hex": "#FFFFFF"
+          },
+          {
+            "role": "contrast",
+            "name": "Runway Black",
+            "slug": "runway-black",
+            "hex": "#080808"
+          },
+          {
+            "role": "primary",
+            "name": "Vermilion",
+            "slug": "vermilion",
+            "hex": "#D83A2E"
+          },
+          {
+            "role": "secondary",
+            "name": "Powder",
+            "slug": "powder",
+            "hex": "#E9EEF2"
+          },
+          {
+            "role": "accent",
+            "name": "Ink Blue",
+            "slug": "ink-blue",
+            "hex": "#1D3C6A"
+          }
+        ],
+        "contrastNotes": "Keep article text black on white. Seasonal colors work best for labels, issue covers, and hero accents."
+      },
+      "typography": {
+        "display": "Fashion serif: Didot-like, Bodoni 72, Playfair Display, Georgia, serif.",
+        "body": "Elegant but practical sans: Helvetica Neue, Arial, system-ui, sans-serif.",
+        "accent": "Condensed sans for departments, issue numbers, and image credits.",
+        "scale": "High contrast scale with enormous cover lines and restrained body copy.",
+        "usage": "Pair dramatic headlines with plain body text and disciplined captions."
+      },
+      "layout": {
+        "density": "Varied, alternating sparse features and dense story grids.",
+        "grid": "Magazine grid with lead story, secondary stack, and column-based article packages.",
+        "rhythm": "Editorial pacing with image-led section openings.",
+        "navigation": "Department-driven nav with search and issue/archive access.",
+        "hero": "Cover-story composition with large image, cover line, deck, and issue label."
+      },
+      "imagery": {
+        "subjects": [
+          "fashion editorials",
+          "portraits",
+          "objects",
+          "street style",
+          "culture events"
+        ],
+        "treatment": "Polished, high-resolution, color-corrected, no dark unreadable overlays.",
+        "crop": "Use deliberate magazine crops while preserving faces, products, and garment details."
+      },
+      "components": {
+        "buttons": "Editorial text buttons or fine-outline buttons.",
+        "cards": "Story cards prioritize image, title, department, and byline.",
+        "forms": "Newsletter forms feel like subscription modules, not generic lead gen.",
+        "special": [
+          "cover story hero",
+          "department index",
+          "issue archive",
+          "editor's picks"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Define custom post template styles for feature, review, and interview stories.",
+          "Style core/query blocks into lead story and magazine grid variations.",
+          "Add large display font-size presets but keep body defaults conservative."
+        ],
+        "patternIdeas": [
+          "cover story",
+          "issue contents",
+          "department grid",
+          "newsletter subscription"
+        ],
+        "templateFocus": [
+          "home",
+          "single",
+          "archive",
+          "search"
+        ],
+        "blockStyleTargets": [
+          "core/query",
+          "core/post-featured-image",
+          "core/post-title",
+          "core/navigation",
+          "core/group"
+        ]
+      },
+      "accessibility": [
+        "Avoid overlaying fine serif text on complex imagery.",
+        "Make bylines and dates readable, not decorative afterthoughts.",
+        "Provide visible keyboard focus in department navigation."
+      ],
+      "antiPatterns": [
+        "low-resolution imagery",
+        "all-caps body text",
+        "random serif mixing",
+        "generic lifestyle stock"
+      ],
+      "promptSeeds": [
+        "high gloss editorial WordPress theme",
+        "fashion magazine grid",
+        "cover story homepage",
+        "polished culture journal"
+      ]
+    },
+    {
+      "id": "playful-maker-studio",
+      "name": "Playful Maker Studio",
+      "status": "ready",
+      "summary": "A bright creator style that feels hands-on, energetic, and friendly without slipping into childish novelty.",
+      "tags": [
+        "creator",
+        "studio",
+        "playful",
+        "portfolio"
+      ],
+      "bestFor": [
+        "creative studios",
+        "illustrators",
+        "workshop hosts",
+        "creator shops"
+      ],
+      "avoidFor": [
+        "financial institutions",
+        "legal services",
+        "somber memorial sites"
+      ],
+      "mood": [
+        "inventive",
+        "friendly",
+        "bright",
+        "approachable"
+      ],
+      "designDna": [
+        "bold shapes",
+        "mixed media",
+        "clear calls to action",
+        "friendly microcopy",
+        "lively project cards"
+      ],
+      "palette": {
+        "strategy": "Creamy base with saturated but balanced studio colors.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Sketchbook",
+            "slug": "sketchbook",
+            "hex": "#FFF8EA"
+          },
+          {
+            "role": "contrast",
+            "name": "Pencil",
+            "slug": "pencil",
+            "hex": "#202124"
+          },
+          {
+            "role": "primary",
+            "name": "Marker Blue",
+            "slug": "marker-blue",
+            "hex": "#2563EB"
+          },
+          {
+            "role": "secondary",
+            "name": "Studio Pink",
+            "slug": "studio-pink",
+            "hex": "#EE5A8A"
+          },
+          {
+            "role": "accent",
+            "name": "Fresh Lime",
+            "slug": "fresh-lime",
+            "hex": "#B6D94C"
+          }
+        ],
+        "contrastNotes": "Use Pencil for body copy. Lime is best as a surface or badge with dark text."
+      },
+      "typography": {
+        "display": "Rounded sans: Nunito Sans, Baloo 2, Arial Rounded, system-ui, sans-serif.",
+        "body": "Friendly sans with clean readability.",
+        "accent": "Handwritten-looking accent only for small labels if legible.",
+        "scale": "Large friendly headings with compact project metadata.",
+        "usage": "Use accent typography sparingly; let color and layout create the play."
+      },
+      "layout": {
+        "density": "Medium-open.",
+        "grid": "Responsive project grid with shape-like color bands and occasional offset cards.",
+        "rhythm": "Energetic sections separated by bold surface shifts.",
+        "navigation": "Simple nav with clear portfolio, shop, and booking paths.",
+        "hero": "Creator work visible immediately, with direct contact or shop action."
+      },
+      "imagery": {
+        "subjects": [
+          "works in progress",
+          "studio desks",
+          "finished projects",
+          "workshop moments"
+        ],
+        "treatment": "Bright, real, tactile, with occasional cutout treatment.",
+        "crop": "Use varied aspect ratios but align them within a stable responsive grid."
+      },
+      "components": {
+        "buttons": "Bold filled buttons with icon support and playful hover states.",
+        "cards": "Project cards can use color backing but need stable dimensions.",
+        "forms": "Workshop signup and contact forms with clear steps and warm validation messages.",
+        "special": [
+          "workshop schedule",
+          "project gallery",
+          "creator bio strip",
+          "shop launch banner"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Create block styles for bright group backgrounds and playful project cards.",
+          "Register a medium-large border radius token while avoiding overly round cards.",
+          "Use pattern categories for portfolio, workshop, and shop sections."
+        ],
+        "patternIdeas": [
+          "studio hero",
+          "project grid",
+          "workshop schedule",
+          "creator shop feature"
+        ],
+        "templateFocus": [
+          "front-page",
+          "portfolio",
+          "page",
+          "single"
+        ],
+        "blockStyleTargets": [
+          "core/gallery",
+          "core/query",
+          "core/buttons",
+          "core/media-text",
+          "core/group"
+        ]
+      },
+      "accessibility": [
+        "Ensure playful colors have enough contrast for real interface states.",
+        "Avoid text inside irregular shapes when it hurts readability.",
+        "Keep project card heights stable across viewport sizes."
+      ],
+      "antiPatterns": [
+        "childish doodles everywhere",
+        "unstable masonry that jumps",
+        "illegible hand lettering",
+        "random rainbow palettes"
+      ],
+      "promptSeeds": [
+        "playful maker portfolio",
+        "bright creative studio WordPress theme",
+        "creator workshop site",
+        "friendly project grid"
+      ]
+    },
+    {
+      "id": "minimalist-longform",
+      "name": "Minimalist Longform",
+      "status": "ready",
+      "summary": "A quiet reading-first style for essays, newsletters, and personal publishing where typography carries the experience.",
+      "tags": [
+        "blog",
+        "newsletter",
+        "writing",
+        "minimal"
+      ],
+      "bestFor": [
+        "essayists",
+        "research blogs",
+        "personal sites",
+        "membership newsletters"
+      ],
+      "avoidFor": [
+        "visual portfolios",
+        "product-heavy shops",
+        "event sites needing urgency"
+      ],
+      "mood": [
+        "thoughtful",
+        "clear",
+        "patient",
+        "intimate"
+      ],
+      "designDna": [
+        "excellent body copy",
+        "restrained links",
+        "clear archive",
+        "small metadata",
+        "generous reading margins"
+      ],
+      "palette": {
+        "strategy": "Warm paper and dark ink with one quiet link color and one note surface.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Paper",
+            "slug": "paper",
+            "hex": "#FBF8F1"
+          },
+          {
+            "role": "contrast",
+            "name": "Reading Ink",
+            "slug": "reading-ink",
+            "hex": "#1F1D1A"
+          },
+          {
+            "role": "primary",
+            "name": "Link Blue",
+            "slug": "link-blue",
+            "hex": "#245C8A"
+          },
+          {
+            "role": "secondary",
+            "name": "Margin Note",
+            "slug": "margin-note",
+            "hex": "#EDE4D4"
+          },
+          {
+            "role": "accent",
+            "name": "Rust Mark",
+            "slug": "rust-mark",
+            "hex": "#9B4F35"
+          }
+        ],
+        "contrastNotes": "Use Reading Ink on Paper. Link Blue should be underlined in article bodies."
+      },
+      "typography": {
+        "display": "Literary serif: Charter, Iowan Old Style, Georgia, serif.",
+        "body": "Same serif stack for articles, optionally system sans for nav and metadata.",
+        "accent": "Small sans or mono for dates, reading time, and taxonomy.",
+        "scale": "Subtle scale with excellent paragraph rhythm and larger first-level headings.",
+        "usage": "Optimize body text before decorative decisions; line-height and measure are core."
+      },
+      "layout": {
+        "density": "Open reading density.",
+        "grid": "Single-column articles with optional margin notes on wide screens.",
+        "rhythm": "Paragraph-first rhythm with clear breaks around quotes and lists.",
+        "navigation": "Quiet text navigation and simple archive access.",
+        "hero": "Publication title, concise description, and recent essays, not a marketing hero."
+      },
+      "imagery": {
+        "subjects": [
+          "occasional essay images",
+          "diagrams",
+          "book covers",
+          "author portraits"
+        ],
+        "treatment": "Use images sparingly and caption them well.",
+        "crop": "Keep article images full-width within the reading measure or deliberately wide with captions."
+      },
+      "components": {
+        "buttons": "Text links for most actions; simple filled button for subscribe.",
+        "cards": "Archive cards should feel like bibliographic entries, not marketing cards.",
+        "forms": "Newsletter signup with minimal fields and clear privacy note.",
+        "special": [
+          "essay archive",
+          "margin note",
+          "footnotes",
+          "subscription callout"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Set contentSize between 680px and 760px for readable articles.",
+          "Style core/post-content, core/quote, and core/list carefully.",
+          "Add a style variation for dark reading mode only if contrast remains excellent."
+        ],
+        "patternIdeas": [
+          "recent essays",
+          "subscription note",
+          "annotated quote",
+          "archive list"
+        ],
+        "templateFocus": [
+          "home",
+          "single",
+          "archive",
+          "page"
+        ],
+        "blockStyleTargets": [
+          "core/post-content",
+          "core/quote",
+          "core/list",
+          "core/separator",
+          "core/search"
+        ]
+      },
+      "accessibility": [
+        "Keep body text at a comfortable size and measure.",
+        "Underline links in longform content.",
+        "Avoid faint metadata that becomes unreadable."
+      ],
+      "antiPatterns": [
+        "centered long paragraphs",
+        "hero bloat",
+        "tiny captions",
+        "decorative drop caps that break mobile flow"
+      ],
+      "promptSeeds": [
+        "minimalist essay WordPress theme",
+        "reading-first personal publication",
+        "quiet longform typography",
+        "newsletter archive design"
+      ]
+    },
+    {
+      "id": "maximalist-collage",
+      "name": "Maximalist Collage",
+      "status": "ready",
+      "summary": "A layered cultural style made from cut paper, overlapping images, assertive headlines, and deliberately busy but controlled composition.",
+      "tags": [
+        "maximalist",
+        "arts",
+        "campaign",
+        "collage"
+      ],
+      "bestFor": [
+        "arts festivals",
+        "youth culture campaigns",
+        "zines",
+        "creative launches"
+      ],
+      "avoidFor": [
+        "public-service forms",
+        "financial services",
+        "medical information"
+      ],
+      "mood": [
+        "loud",
+        "improvised",
+        "expressive",
+        "cultural"
+      ],
+      "designDna": [
+        "layered imagery",
+        "paper edges",
+        "scale jumps",
+        "sticker labels",
+        "deliberate overload"
+      ],
+      "palette": {
+        "strategy": "Dark ink and paper base with hot campaign colors used as stickers and bands.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Pasteup Paper",
+            "slug": "pasteup-paper",
+            "hex": "#F8EFD9"
+          },
+          {
+            "role": "contrast",
+            "name": "Cutout Ink",
+            "slug": "cutout-ink",
+            "hex": "#17120F"
+          },
+          {
+            "role": "primary",
+            "name": "Hot Magenta",
+            "slug": "hot-magenta",
+            "hex": "#E7298A"
+          },
+          {
+            "role": "secondary",
+            "name": "Poster Green",
+            "slug": "poster-green",
+            "hex": "#2BA84A"
+          },
+          {
+            "role": "accent",
+            "name": "Flyer Yellow",
+            "slug": "flyer-yellow",
+            "hex": "#F7D02C"
+          }
+        ],
+        "contrastNotes": "Keep long copy on Pasteup Paper or solid dark surfaces. Do not place body copy over busy collage."
+      },
+      "typography": {
+        "display": "Chunky sans or slab: Cooper Black-like, Archivo Black, Arial Black, serif fallback.",
+        "body": "Plain sans for readable event and article content.",
+        "accent": "Mono or stamped sans for labels, dates, prices, and categories.",
+        "scale": "Wide scale with poster-size headlines and small label systems.",
+        "usage": "Contrast loud display type with very plain body copy."
+      },
+      "layout": {
+        "density": "High, with controlled reading zones.",
+        "grid": "Loose collage over an underlying grid so responsive layout remains stable.",
+        "rhythm": "Energetic section breaks with quiet content zones for details.",
+        "navigation": "Sticky, simple nav that anchors the busy page.",
+        "hero": "Layered poster composition with event or campaign signal visible immediately."
+      },
+      "imagery": {
+        "subjects": [
+          "cutout portraits",
+          "event photos",
+          "scanned textures",
+          "stickers",
+          "posters"
+        ],
+        "treatment": "Layered, clipped, and tactile, but essential content remains readable.",
+        "crop": "Use cutouts and irregular crops decoratively, not for critical product inspection."
+      },
+      "components": {
+        "buttons": "Sticker-like action buttons with clear text and strong contrast.",
+        "cards": "Event or article cards can overlap imagery but must keep text on solid surfaces.",
+        "forms": "Ticket and signup forms should be calmer than the surrounding art direction.",
+        "special": [
+          "poster hero",
+          "lineup wall",
+          "sticker callout",
+          "zine archive"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Register bright palette colors but keep body defaults neutral.",
+          "Use block patterns rather than arbitrary absolute positioning for collage sections.",
+          "Create safe text panel styles for content placed near layered media."
+        ],
+        "patternIdeas": [
+          "collage hero",
+          "lineup grid",
+          "poster archive",
+          "ticket callout"
+        ],
+        "templateFocus": [
+          "front-page",
+          "event",
+          "archive",
+          "page"
+        ],
+        "blockStyleTargets": [
+          "core/cover",
+          "core/group",
+          "core/image",
+          "core/query",
+          "core/buttons"
+        ]
+      },
+      "accessibility": [
+        "Keep critical text out of textured backgrounds.",
+        "Do not make moving collage elements essential to understanding.",
+        "Give forms and purchase flows calmer, predictable layouts."
+      ],
+      "antiPatterns": [
+        "uncontrolled z-index overlaps",
+        "body copy on photos",
+        "too many display fonts",
+        "random sticker placement on mobile"
+      ],
+      "promptSeeds": [
+        "maximalist collage WordPress theme",
+        "arts festival pasteup design",
+        "zine-inspired campaign site",
+        "layered poster homepage"
+      ]
+    },
+    {
+      "id": "sports-card-americana",
+      "name": "Sports Card Americana",
+      "status": "ready",
+      "summary": "A nostalgic collectible-card style with vintage stats, team colors, textured borders, and playful identity systems.",
+      "tags": [
+        "sports",
+        "collectibles",
+        "retro",
+        "community"
+      ],
+      "bestFor": [
+        "fan sites",
+        "league microsites",
+        "collectible archives",
+        "mascot projects"
+      ],
+      "avoidFor": [
+        "serious news reporting",
+        "luxury services",
+        "medical sites"
+      ],
+      "mood": [
+        "nostalgic",
+        "spirited",
+        "collectible",
+        "playful"
+      ],
+      "designDna": [
+        "card frames",
+        "team color blocking",
+        "stat tables",
+        "badges",
+        "vintage print texture"
+      ],
+      "palette": {
+        "strategy": "Cream stock and navy ink with red and field green accents.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Card Stock",
+            "slug": "card-stock",
+            "hex": "#F4E3C1"
+          },
+          {
+            "role": "contrast",
+            "name": "Scoreboard Navy",
+            "slug": "scoreboard-navy",
+            "hex": "#17324D"
+          },
+          {
+            "role": "primary",
+            "name": "Pennant Red",
+            "slug": "pennant-red",
+            "hex": "#C93A2B"
+          },
+          {
+            "role": "secondary",
+            "name": "Field Green",
+            "slug": "field-green",
+            "hex": "#477A42"
+          },
+          {
+            "role": "accent",
+            "name": "Sun Bleach",
+            "slug": "sun-bleach",
+            "hex": "#E9C46A"
+          }
+        ],
+        "contrastNotes": "Use navy for copy. Red and green need careful contrast checks when placed over Card Stock."
+      },
+      "typography": {
+        "display": "Athletic slab or varsity-adjacent serif: Graduate, Rockwell, Georgia, serif.",
+        "body": "Plain sans for stats and descriptions.",
+        "accent": "Condensed sans or mono for card numbers, seasons, and stats.",
+        "scale": "Poster-like names, compact stats, readable collection pages.",
+        "usage": "Use display type for team identity and keep stats extremely legible."
+      },
+      "layout": {
+        "density": "Medium-high.",
+        "grid": "Card grid with consistent aspect ratios and collection filters.",
+        "rhythm": "Alternates nostalgic feature areas with practical sortable indexes.",
+        "navigation": "Team, season, and archive navigation should be prominent.",
+        "hero": "Featured card or team roster with clear archive entry points."
+      },
+      "imagery": {
+        "subjects": [
+          "player portraits",
+          "mascots",
+          "team badges",
+          "printed cards",
+          "stadium details"
+        ],
+        "treatment": "Subtle print grain, aged stock, framed photography, and badge-like graphics.",
+        "crop": "Consistent portrait and card aspect ratios matter more than decorative variation."
+      },
+      "components": {
+        "buttons": "Pennant-like tabs or plain filled buttons with athletic color.",
+        "cards": "Cards are the core object; preserve stable dimensions and back/front variants.",
+        "forms": "Filter controls for team, season, type, and rarity.",
+        "special": [
+          "roster card grid",
+          "stat back",
+          "team badge rail",
+          "season archive"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Define custom query card patterns for stable collectible grids.",
+          "Add table styles for stats with strong row and column readability.",
+          "Create style variations for baseball, basketball, and general team identities."
+        ],
+        "patternIdeas": [
+          "featured card hero",
+          "roster archive",
+          "stat table",
+          "team badge section"
+        ],
+        "templateFocus": [
+          "front-page",
+          "single",
+          "archive",
+          "taxonomy"
+        ],
+        "blockStyleTargets": [
+          "core/query",
+          "core/table",
+          "core/image",
+          "core/group",
+          "core/post-featured-image"
+        ]
+      },
+      "accessibility": [
+        "Do not place small stat text on textured backgrounds.",
+        "Keep filters keyboard accessible and labeled.",
+        "Make color-coded teams distinguishable by text labels too."
+      ],
+      "antiPatterns": [
+        "illegible distressed type",
+        "random nostalgia filters",
+        "unstable card aspect ratios",
+        "stats hidden in images"
+      ],
+      "promptSeeds": [
+        "vintage sports card WordPress theme",
+        "collectible roster archive",
+        "team stat card design",
+        "Americana fan site"
+      ]
+    },
+    {
+      "id": "mystic-cms-oracle",
+      "name": "Mystic CMS Oracle",
+      "status": "ready",
+      "summary": "A playful occult-inspired style for weird technology, lore, cards, and narrative product experiences.",
+      "tags": [
+        "occult",
+        "playful",
+        "narrative",
+        "weird"
+      ],
+      "bestFor": [
+        "tarot-style projects",
+        "fictional tools",
+        "creative launches",
+        "lore-driven archives"
+      ],
+      "avoidFor": [
+        "clinical health",
+        "government",
+        "serious financial advice"
+      ],
+      "mood": [
+        "mysterious",
+        "witty",
+        "symbolic",
+        "dramatic"
+      ],
+      "designDna": [
+        "ornamental frames",
+        "symbol systems",
+        "ritual-like reveal",
+        "dark surfaces",
+        "card-based collections"
+      ],
+      "palette": {
+        "strategy": "Deep purple-black base with parchment, gold, and strange green accents.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Night Plum",
+            "slug": "night-plum",
+            "hex": "#17101F"
+          },
+          {
+            "role": "contrast",
+            "name": "Parchment Light",
+            "slug": "parchment-light",
+            "hex": "#F2E6C9"
+          },
+          {
+            "role": "primary",
+            "name": "Oracle Gold",
+            "slug": "oracle-gold",
+            "hex": "#D0A441"
+          },
+          {
+            "role": "secondary",
+            "name": "Rune Green",
+            "slug": "rune-green",
+            "hex": "#7EC98D"
+          },
+          {
+            "role": "accent",
+            "name": "Ritual Rose",
+            "slug": "ritual-rose",
+            "hex": "#B65A7A"
+          }
+        ],
+        "contrastNotes": "Use parchment for text on dark surfaces. Gold is best for borders and symbols, not paragraphs."
+      },
+      "typography": {
+        "display": "Decorative serif used carefully: Cinzel, Cormorant Garamond, Georgia, serif.",
+        "body": "Readable serif or sans depending on story length.",
+        "accent": "Small caps serif for card titles, numerals, and section labels.",
+        "scale": "Dramatic display titles with grounded body text.",
+        "usage": "Use ornament in titles and frames; keep instructions and UI plain."
+      },
+      "layout": {
+        "density": "Medium.",
+        "grid": "Card grid with framed objects and ritual-like section sequencing.",
+        "rhythm": "Theatrical openings followed by scannable archive sections.",
+        "navigation": "Symbolic but labeled nav; never icon-only for core sections.",
+        "hero": "Large card, deck, or oracle object visible in the first viewport."
+      },
+      "imagery": {
+        "subjects": [
+          "cards",
+          "symbols",
+          "moonlit objects",
+          "illustrated artifacts",
+          "interface glyphs"
+        ],
+        "treatment": "Illustrated or photographed with clear object detail; avoid muddy darkness.",
+        "crop": "Use tall card ratios for featured artifacts and clean grids for archives."
+      },
+      "components": {
+        "buttons": "Dark filled or gold-outline buttons with plain readable labels.",
+        "cards": "Framed cards can be ornate, but inner content must stay readable.",
+        "forms": "Subscription or reading forms use calm fields inside dramatic wrappers.",
+        "special": [
+          "card spread",
+          "oracle result",
+          "symbol glossary",
+          "deck archive"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Register dark and parchment palette colors, plus high-contrast link styles.",
+          "Add block styles for framed images, card grids, and symbolic dividers.",
+          "Use pattern categories for deck, reading, archive, and glossary."
+        ],
+        "patternIdeas": [
+          "oracle hero",
+          "three-card spread",
+          "deck archive",
+          "symbol glossary"
+        ],
+        "templateFocus": [
+          "front-page",
+          "single",
+          "archive",
+          "page"
+        ],
+        "blockStyleTargets": [
+          "core/image",
+          "core/gallery",
+          "core/query",
+          "core/group",
+          "core/separator"
+        ]
+      },
+      "accessibility": [
+        "Do not use decorative symbols without text labels.",
+        "Keep ornate borders from crowding body text.",
+        "Avoid low-contrast gold text on purple backgrounds."
+      ],
+      "antiPatterns": [
+        "illegible blackletter",
+        "muddy dark overlays",
+        "icon-only navigation",
+        "ornament on every surface"
+      ],
+      "promptSeeds": [
+        "mystic WordPress oracle theme",
+        "occult card archive",
+        "playful tarot-inspired CMS design",
+        "dark symbolic collection site"
+      ]
+    },
+    {
+      "id": "academic-library",
+      "name": "Academic Library",
+      "status": "ready",
+      "summary": "A scholarly style that combines institutional clarity, citation-friendly typography, and calm research navigation.",
+      "tags": [
+        "education",
+        "research",
+        "library",
+        "institutional"
+      ],
+      "bestFor": [
+        "research centers",
+        "course sites",
+        "digital archives",
+        "academic journals"
+      ],
+      "avoidFor": [
+        "fast retail",
+        "music events",
+        "playful creator brands"
+      ],
+      "mood": [
+        "scholarly",
+        "organized",
+        "measured",
+        "credible"
+      ],
+      "designDna": [
+        "catalog structure",
+        "footnote-friendly text",
+        "quiet color",
+        "document metadata",
+        "index pages"
+      ],
+      "palette": {
+        "strategy": "Ivory reading base with deep green, oxblood, and slate references.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Archive Ivory",
+            "slug": "archive-ivory",
+            "hex": "#F7F2E6"
+          },
+          {
+            "role": "contrast",
+            "name": "Catalog Ink",
+            "slug": "catalog-ink",
+            "hex": "#22201C"
+          },
+          {
+            "role": "primary",
+            "name": "Library Green",
+            "slug": "library-green",
+            "hex": "#2E5E4E"
+          },
+          {
+            "role": "secondary",
+            "name": "Oxblood",
+            "slug": "oxblood",
+            "hex": "#7C2D2D"
+          },
+          {
+            "role": "accent",
+            "name": "Index Slate",
+            "slug": "index-slate",
+            "hex": "#52616B"
+          }
+        ],
+        "contrastNotes": "Use Catalog Ink for text. Green and oxblood work for headings, rules, and filled controls with light text."
+      },
+      "typography": {
+        "display": "Scholarly serif: Source Serif 4, Georgia, Iowan Old Style, serif.",
+        "body": "Readable serif for papers or sans for institutional pages.",
+        "accent": "Mono or tabular sans for identifiers, DOIs, dates, and catalog numbers.",
+        "scale": "Measured scale with strong h2/h3 distinction for structured documents.",
+        "usage": "Support citations, footnotes, abstracts, and metadata without visual clutter."
+      },
+      "layout": {
+        "density": "Medium.",
+        "grid": "Main content plus metadata/sidebar on research pages.",
+        "rhythm": "Document-like rhythm with clear sectioning and anchor links.",
+        "navigation": "Search and collections navigation take priority over marketing links.",
+        "hero": "Catalog or research statement with search, collections, and recent publications."
+      },
+      "imagery": {
+        "subjects": [
+          "archive scans",
+          "research photography",
+          "charts",
+          "book details",
+          "campus spaces"
+        ],
+        "treatment": "Respect source material; use captions and provenance.",
+        "crop": "Avoid crops that remove context from archival materials."
+      },
+      "components": {
+        "buttons": "Plain institutional buttons with clear labels.",
+        "cards": "Record cards show title, author, date, collection, and abstract excerpt.",
+        "forms": "Search and filter forms are central, with precise labels.",
+        "special": [
+          "citation block",
+          "metadata sidebar",
+          "collection index",
+          "download list"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Style core/details for abstracts and citations.",
+          "Add block styles for metadata panels and document lists.",
+          "Define table styles for bibliographies and datasets."
+        ],
+        "patternIdeas": [
+          "research search hero",
+          "publication list",
+          "metadata sidebar",
+          "collection index"
+        ],
+        "templateFocus": [
+          "home",
+          "single",
+          "archive",
+          "search"
+        ],
+        "blockStyleTargets": [
+          "core/search",
+          "core/table",
+          "core/details",
+          "core/list",
+          "core/query"
+        ]
+      },
+      "accessibility": [
+        "Keep search and filter controls well labeled.",
+        "Use semantic headings in long documents.",
+        "Ensure scanned materials have meaningful alt text or transcripts."
+      ],
+      "antiPatterns": [
+        "decorative old-book cliches",
+        "tiny footnotes without controls",
+        "image-only archives",
+        "low-contrast institutional palettes"
+      ],
+      "promptSeeds": [
+        "academic library WordPress theme",
+        "research center publication archive",
+        "scholarly document design",
+        "digital collection catalog"
+      ]
+    },
+    {
+      "id": "alpine-expedition",
+      "name": "Alpine Expedition",
+      "status": "ready",
+      "summary": "An outdoor style built from topographic structure, durable typography, and high-clarity adventure imagery.",
+      "tags": [
+        "outdoor",
+        "travel",
+        "adventure",
+        "rugged"
+      ],
+      "bestFor": [
+        "outdoor guides",
+        "gear shops",
+        "trail journals",
+        "adventure tour operators"
+      ],
+      "avoidFor": [
+        "formal institutions",
+        "luxury galleries",
+        "soft wellness sites"
+      ],
+      "mood": [
+        "rugged",
+        "clear",
+        "energetic",
+        "capable"
+      ],
+      "designDna": [
+        "topographic lines",
+        "route cards",
+        "weather-aware information",
+        "large landscape imagery",
+        "durable badges"
+      ],
+      "palette": {
+        "strategy": "Alpine neutrals with evergreen, glacier blue, and safety orange accents.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Snow Field",
+            "slug": "snow-field",
+            "hex": "#F4F7F4"
+          },
+          {
+            "role": "contrast",
+            "name": "Pine Black",
+            "slug": "pine-black",
+            "hex": "#17221C"
+          },
+          {
+            "role": "primary",
+            "name": "Evergreen",
+            "slug": "evergreen",
+            "hex": "#235B43"
+          },
+          {
+            "role": "secondary",
+            "name": "Glacier",
+            "slug": "glacier",
+            "hex": "#7FB7C9"
+          },
+          {
+            "role": "accent",
+            "name": "Trail Orange",
+            "slug": "trail-orange",
+            "hex": "#D96C21"
+          }
+        ],
+        "contrastNotes": "Use Pine Black on Snow Field. Orange is excellent for alerts and route actions but needs dark text when used as a pale surface."
+      },
+      "typography": {
+        "display": "Rugged sans or slab: Oswald, Roboto Condensed, Rockwell, system-ui.",
+        "body": "Clear sans for logistics and trip details.",
+        "accent": "Mono or condensed labels for elevation, distance, route, and weather stats.",
+        "scale": "Strong display headings with practical subheads and data labels.",
+        "usage": "Blend adventure personality with map-like information clarity."
+      },
+      "layout": {
+        "density": "Medium.",
+        "grid": "Content grid supports maps, itinerary cards, gear lists, and images.",
+        "rhythm": "Section rhythm should feel like trip stages.",
+        "navigation": "Trips, routes, gear, journal, and booking paths are primary.",
+        "hero": "Landscape image or route map with immediate booking or guide action."
+      },
+      "imagery": {
+        "subjects": [
+          "real trails",
+          "mountain landscapes",
+          "gear details",
+          "route maps",
+          "guides in context"
+        ],
+        "treatment": "Crisp daylight, truthful weather, and high environmental detail.",
+        "crop": "Use wide images for place, square cards for trips, and map crops for routes."
+      },
+      "components": {
+        "buttons": "Durable filled buttons with icon support for booking and route actions.",
+        "cards": "Trip cards show difficulty, duration, elevation, and location at a glance.",
+        "forms": "Booking forms highlight dates, capacity, fitness level, and gear requirements.",
+        "special": [
+          "route facts",
+          "gear checklist",
+          "weather alert",
+          "guide profile"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Add custom spacing presets for dense trip stats and broad image bands.",
+          "Create block styles for route facts, checklist groups, and alert bands.",
+          "Use query patterns for trip collections and journal posts."
+        ],
+        "patternIdeas": [
+          "expedition hero",
+          "trip card grid",
+          "route facts panel",
+          "gear checklist"
+        ],
+        "templateFocus": [
+          "front-page",
+          "single-trip",
+          "archive",
+          "page"
+        ],
+        "blockStyleTargets": [
+          "core/query",
+          "core/table",
+          "core/list",
+          "core/buttons",
+          "core/cover"
+        ]
+      },
+      "accessibility": [
+        "Do not encode difficulty only by color.",
+        "Keep route stats readable on mobile.",
+        "Provide alt text for maps and critical route imagery."
+      ],
+      "antiPatterns": [
+        "dark scenic overlays behind small text",
+        "fake topographic clutter",
+        "generic adventure stock",
+        "missing practical trip details"
+      ],
+      "promptSeeds": [
+        "alpine expedition WordPress theme",
+        "outdoor guide trip cards",
+        "topographic adventure site",
+        "rugged gear journal"
+      ]
+    },
+    {
+      "id": "boutique-hotel",
+      "name": "Boutique Hotel",
+      "status": "ready",
+      "summary": "A hospitality style balancing immersive place imagery, clear booking paths, and refined local atmosphere.",
+      "tags": [
+        "hospitality",
+        "travel",
+        "booking",
+        "premium"
+      ],
+      "bestFor": [
+        "boutique hotels",
+        "bed and breakfasts",
+        "retreat properties",
+        "destination venues"
+      ],
+      "avoidFor": [
+        "developer docs",
+        "dense news sites",
+        "low-imagery businesses"
+      ],
+      "mood": [
+        "welcoming",
+        "refined",
+        "local",
+        "restful"
+      ],
+      "designDna": [
+        "place-first photography",
+        "booking bar",
+        "room cards",
+        "local guide sections",
+        "soft premium typography"
+      ],
+      "palette": {
+        "strategy": "Warm neutral base with deep green, terracotta, and pool blue accents.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Suite Linen",
+            "slug": "suite-linen",
+            "hex": "#F6EFE5"
+          },
+          {
+            "role": "contrast",
+            "name": "Charcoal Key",
+            "slug": "charcoal-key",
+            "hex": "#25211D"
+          },
+          {
+            "role": "primary",
+            "name": "Courtyard Green",
+            "slug": "courtyard-green",
+            "hex": "#3D6755"
+          },
+          {
+            "role": "secondary",
+            "name": "Terracotta Tile",
+            "slug": "terracotta-tile",
+            "hex": "#B66346"
+          },
+          {
+            "role": "accent",
+            "name": "Pool Blue",
+            "slug": "pool-blue",
+            "hex": "#4D8FA3"
+          }
+        ],
+        "contrastNotes": "Use Charcoal Key for text. Terracotta and green can carry filled booking actions with light text if contrast passes."
+      },
+      "typography": {
+        "display": "Elegant serif: Cormorant Garamond, Libre Baskerville, Georgia, serif.",
+        "body": "Warm sans: Source Sans 3, system-ui, Arial, sans-serif.",
+        "accent": "Small uppercase sans for amenity labels and room metadata.",
+        "scale": "Graceful display scale with practical booking and room copy sizes.",
+        "usage": "Use serif for atmosphere, sans for logistics and booking clarity."
+      },
+      "layout": {
+        "density": "Open with practical booking density.",
+        "grid": "Room cards, amenity grids, local guide bands, and full-bleed place imagery.",
+        "rhythm": "Slow scenic sections interrupted by compact booking modules.",
+        "navigation": "Rooms, dining, experiences, location, and book action should always be findable.",
+        "hero": "Full-bleed place image with booking widget or clear reservation button visible."
+      },
+      "imagery": {
+        "subjects": [
+          "rooms",
+          "common spaces",
+          "local streets",
+          "food and drink",
+          "guest experiences"
+        ],
+        "treatment": "Natural premium photography with place specificity and inspectable room details.",
+        "crop": "Room images must show usable information, not only atmosphere."
+      },
+      "components": {
+        "buttons": "Primary booking button should be stronger than secondary exploration links.",
+        "cards": "Room cards include image, price hint, capacity, amenities, and action.",
+        "forms": "Booking forms use clear dates, guests, availability, and errors.",
+        "special": [
+          "booking bar",
+          "room comparison",
+          "local guide",
+          "amenity icons"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Register patterns for booking bars and room cards.",
+          "Create image styles for full-bleed, gallery, and room-card variants.",
+          "Set wideSize large enough for immersive image bands."
+        ],
+        "patternIdeas": [
+          "hotel hero with booking",
+          "room card row",
+          "amenities grid",
+          "local guide feature"
+        ],
+        "templateFocus": [
+          "front-page",
+          "room",
+          "page",
+          "gallery"
+        ],
+        "blockStyleTargets": [
+          "core/cover",
+          "core/gallery",
+          "core/buttons",
+          "core/columns",
+          "core/group"
+        ]
+      },
+      "accessibility": [
+        "Keep booking controls reachable and labeled.",
+        "Do not overlay small text on room photos.",
+        "Provide descriptive alt text for rooms and amenities."
+      ],
+      "antiPatterns": [
+        "dark unreadable hero overlays",
+        "vague atmospheric photos only",
+        "hidden booking path",
+        "too many script accents"
+      ],
+      "promptSeeds": [
+        "boutique hotel WordPress theme",
+        "place-first hospitality site",
+        "room booking visual system",
+        "refined local travel homepage"
+      ]
+    },
+    {
+      "id": "food-zine",
+      "name": "Food Zine",
+      "status": "ready",
+      "summary": "A lively culinary publishing style with recipe clarity, tactile food photography, and independent zine energy.",
+      "tags": [
+        "food",
+        "recipes",
+        "zine",
+        "editorial"
+      ],
+      "bestFor": [
+        "recipe blogs",
+        "independent food magazines",
+        "restaurant journals",
+        "cookbook launches"
+      ],
+      "avoidFor": [
+        "corporate finance",
+        "technical docs",
+        "luxury monochrome portfolios"
+      ],
+      "mood": [
+        "hungry",
+        "casual",
+        "expressive",
+        "useful"
+      ],
+      "designDna": [
+        "recipe cards",
+        "ingredient callouts",
+        "bold food color",
+        "casual editorial labels",
+        "print-inspired sections"
+      ],
+      "palette": {
+        "strategy": "Warm kitchen base with tomato, herb, and citrus accents.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Kitchen Paper",
+            "slug": "kitchen-paper",
+            "hex": "#FFF2D8"
+          },
+          {
+            "role": "contrast",
+            "name": "Cast Iron",
+            "slug": "cast-iron",
+            "hex": "#211A14"
+          },
+          {
+            "role": "primary",
+            "name": "Tomato",
+            "slug": "tomato",
+            "hex": "#D9432F"
+          },
+          {
+            "role": "secondary",
+            "name": "Herb",
+            "slug": "herb",
+            "hex": "#4F7D3F"
+          },
+          {
+            "role": "accent",
+            "name": "Lemon",
+            "slug": "lemon",
+            "hex": "#F2C84B"
+          }
+        ],
+        "contrastNotes": "Use Cast Iron for copy. Lemon needs dark text. Tomato works best for buttons and recipe labels with light text if contrast passes."
+      },
+      "typography": {
+        "display": "Chunky serif or friendly slab: Cooper-like, Fraunces, Georgia, serif.",
+        "body": "Readable sans or serif tuned for recipe steps.",
+        "accent": "Mono or condensed sans for prep time, yield, and ingredient amounts.",
+        "scale": "Expressive headlines with practical recipe body sizes.",
+        "usage": "Recipe instructions need more discipline than editorial features."
+      },
+      "layout": {
+        "density": "Medium.",
+        "grid": "Recipe card grids, feature stories, and structured recipe templates.",
+        "rhythm": "Editorial energy on index pages, calm step-by-step rhythm on recipes.",
+        "navigation": "Search, cuisines, recipe types, and latest posts should be obvious.",
+        "hero": "Featured dish image with recipe metadata visible before scroll."
+      },
+      "imagery": {
+        "subjects": [
+          "finished dishes",
+          "ingredients",
+          "process shots",
+          "kitchen scenes",
+          "restaurant details"
+        ],
+        "treatment": "Natural appetizing color with texture; avoid gray or over-filtered food.",
+        "crop": "Use vertical hero crops for dishes and step crops for process clarity."
+      },
+      "components": {
+        "buttons": "Bold recipe action buttons for print, save, jump, and shop.",
+        "cards": "Recipe cards show title, image, time, difficulty, and category.",
+        "forms": "Search and dietary filters should be fast, visible, and well labeled.",
+        "special": [
+          "recipe facts",
+          "ingredient checklist",
+          "step-by-step method",
+          "seasonal index"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Create patterns for recipe facts and ingredient sections.",
+          "Style lists carefully for ingredients and numbered methods.",
+          "Add print-friendly styles for single recipe pages."
+        ],
+        "patternIdeas": [
+          "featured recipe hero",
+          "recipe card grid",
+          "ingredient checklist",
+          "seasonal collection"
+        ],
+        "templateFocus": [
+          "home",
+          "single",
+          "archive",
+          "search"
+        ],
+        "blockStyleTargets": [
+          "core/list",
+          "core/query",
+          "core/image",
+          "core/table",
+          "core/buttons"
+        ]
+      },
+      "accessibility": [
+        "Recipe steps must remain readable while cooking.",
+        "Use labels for dietary tags, not just colors.",
+        "Ensure jump links and print buttons are keyboard accessible."
+      ],
+      "antiPatterns": [
+        "long personal intros before recipe controls",
+        "food photos behind text",
+        "tiny ingredient measurements",
+        "washed-out beige-only styling"
+      ],
+      "promptSeeds": [
+        "food zine WordPress theme",
+        "recipe-first editorial design",
+        "bold kitchen color system",
+        "independent culinary magazine"
+      ]
+    },
+    {
+      "id": "neon-night-market",
+      "name": "Neon Night Market",
+      "status": "ready",
+      "summary": "A nocturnal event and commerce style with bright signage, dense discovery, and high-energy urban cues.",
+      "tags": [
+        "event",
+        "nightlife",
+        "commerce",
+        "dark"
+      ],
+      "bestFor": [
+        "night markets",
+        "music venues",
+        "food halls",
+        "streetwear drops"
+      ],
+      "avoidFor": [
+        "longform reading",
+        "medical services",
+        "public records"
+      ],
+      "mood": [
+        "electric",
+        "busy",
+        "social",
+        "urban"
+      ],
+      "designDna": [
+        "dark base",
+        "neon signage",
+        "vendor grids",
+        "event schedules",
+        "high-contrast wayfinding"
+      ],
+      "palette": {
+        "strategy": "Deep navy-black with cyan, pink, and citrus accents used like signage.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Night Asphalt",
+            "slug": "night-asphalt",
+            "hex": "#0A0E1A"
+          },
+          {
+            "role": "contrast",
+            "name": "Sign White",
+            "slug": "sign-white",
+            "hex": "#F4F7FF"
+          },
+          {
+            "role": "primary",
+            "name": "Neon Cyan",
+            "slug": "neon-cyan",
+            "hex": "#22D3EE"
+          },
+          {
+            "role": "secondary",
+            "name": "Hot Pink",
+            "slug": "hot-pink",
+            "hex": "#F43F8D"
+          },
+          {
+            "role": "accent",
+            "name": "Citrus Sign",
+            "slug": "citrus-sign",
+            "hex": "#D8F044"
+          }
+        ],
+        "contrastNotes": "Use Sign White for body copy. Neon colors work for large labels, rules, and buttons but not long text."
+      },
+      "typography": {
+        "display": "Condensed signage sans: Bebas Neue, Oswald, Impact, sans-serif.",
+        "body": "Clear sans with strong numerals for schedules and vendor info.",
+        "accent": "Mono or digital-like sans for times, booth numbers, and ticket codes.",
+        "scale": "Loud display scale with compact event metadata.",
+        "usage": "Make event logistics clearer than the nightlife styling."
+      },
+      "layout": {
+        "density": "Dense discovery.",
+        "grid": "Vendor and event cards in scrollable, filterable grids.",
+        "rhythm": "High-energy sections with strong anchors for schedule, map, and tickets.",
+        "navigation": "Tickets, vendors, schedule, map, and FAQ should be visible.",
+        "hero": "Night-market image or signage wall with immediate ticket or RSVP action."
+      },
+      "imagery": {
+        "subjects": [
+          "vendors",
+          "food stalls",
+          "crowds",
+          "signage",
+          "street scenes"
+        ],
+        "treatment": "Vibrant low-light photography without crushing all detail.",
+        "crop": "Use wide crowd/context images and square vendor cards."
+      },
+      "components": {
+        "buttons": "Bright filled buttons with dark text when using citrus or cyan.",
+        "cards": "Vendor cards need photos, cuisine/product type, booth, and hours.",
+        "forms": "Ticket forms are high contrast and calmer than the visual background.",
+        "special": [
+          "event schedule",
+          "vendor directory",
+          "map callout",
+          "ticket tier block"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Add dark global styles and explicit button/link contrast tokens.",
+          "Create reusable schedule and vendor directory patterns.",
+          "Use query variations for vendor, event, and news indexes."
+        ],
+        "patternIdeas": [
+          "night event hero",
+          "vendor grid",
+          "schedule timeline",
+          "ticket tier section"
+        ],
+        "templateFocus": [
+          "front-page",
+          "event",
+          "archive",
+          "page"
+        ],
+        "blockStyleTargets": [
+          "core/query",
+          "core/table",
+          "core/buttons",
+          "core/group",
+          "core/cover"
+        ]
+      },
+      "accessibility": [
+        "Avoid flashing neon effects.",
+        "Ensure schedule and ticket info works without color cues.",
+        "Keep body copy bright enough against dark surfaces."
+      ],
+      "antiPatterns": [
+        "glow on small text",
+        "illegible photo overlays",
+        "animated backgrounds behind forms",
+        "hidden ticket buttons"
+      ],
+      "promptSeeds": [
+        "neon night market WordPress theme",
+        "dark event vendor directory",
+        "urban nightlife schedule site",
+        "high-energy ticket homepage"
+      ]
+    },
+    {
+      "id": "coastal-gallery",
+      "name": "Coastal Gallery",
+      "status": "ready",
+      "summary": "An airy art and lifestyle style that uses daylight, restraint, and coastal color without becoming nautical kitsch.",
+      "tags": [
+        "gallery",
+        "lifestyle",
+        "coastal",
+        "airy"
+      ],
+      "bestFor": [
+        "art galleries",
+        "interior studios",
+        "coastal venues",
+        "lifestyle shops"
+      ],
+      "avoidFor": [
+        "dark developer projects",
+        "sports fan sites",
+        "urgent campaigns"
+      ],
+      "mood": [
+        "airy",
+        "clean",
+        "sunlit",
+        "relaxed"
+      ],
+      "designDna": [
+        "light surfaces",
+        "soft blue-green accents",
+        "art-forward spacing",
+        "captioned images",
+        "quiet commerce"
+      ],
+      "palette": {
+        "strategy": "Bright white and shell tones with sea glass, deep blue, and coral accents.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Shell White",
+            "slug": "shell-white",
+            "hex": "#FAF8F1"
+          },
+          {
+            "role": "contrast",
+            "name": "Deep Tide",
+            "slug": "deep-tide",
+            "hex": "#183642"
+          },
+          {
+            "role": "primary",
+            "name": "Sea Glass",
+            "slug": "sea-glass",
+            "hex": "#7DB5B2"
+          },
+          {
+            "role": "secondary",
+            "name": "Dune",
+            "slug": "dune",
+            "hex": "#D7C7A6"
+          },
+          {
+            "role": "accent",
+            "name": "Coral",
+            "slug": "coral",
+            "hex": "#D87A68"
+          }
+        ],
+        "contrastNotes": "Use Deep Tide for text. Sea Glass and Dune are surfaces; do not use them for small text."
+      },
+      "typography": {
+        "display": "Elegant light serif or refined sans: Canela-like, Cormorant, Avenir, system-ui.",
+        "body": "Readable sans with calm leading.",
+        "accent": "Small uppercase sans for artwork metadata and collection labels.",
+        "scale": "Gentle display scale and image-led hierarchy.",
+        "usage": "Let image spacing and captions carry refinement."
+      },
+      "layout": {
+        "density": "Open.",
+        "grid": "Gallery grid with consistent gaps and room for captions.",
+        "rhythm": "Slow daylight rhythm with soft section transitions.",
+        "navigation": "Collections, artists, shop, visit, and contact stay minimal but visible.",
+        "hero": "Large artwork or space image with understated title and visit or shop action."
+      },
+      "imagery": {
+        "subjects": [
+          "artworks",
+          "interiors",
+          "coastal textures",
+          "artist process",
+          "gallery spaces"
+        ],
+        "treatment": "Bright natural light, accurate color, no heavy blue filter.",
+        "crop": "Artwork images should preserve full objects when selling or archiving."
+      },
+      "components": {
+        "buttons": "Quiet outline or filled buttons with clear action labels.",
+        "cards": "Artwork cards are image-first with title, artist, year, and status.",
+        "forms": "Inquiry forms are short and respectful, with visible required fields.",
+        "special": [
+          "artist profile",
+          "artwork detail",
+          "visit information",
+          "collection grid"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Create image block styles for artwork detail and gallery grid use.",
+          "Register caption and metadata type sizes.",
+          "Use query patterns for artist and artwork archives."
+        ],
+        "patternIdeas": [
+          "gallery hero",
+          "artist grid",
+          "artwork detail",
+          "visit information"
+        ],
+        "templateFocus": [
+          "front-page",
+          "single-artwork",
+          "archive",
+          "page"
+        ],
+        "blockStyleTargets": [
+          "core/gallery",
+          "core/image",
+          "core/query",
+          "core/buttons",
+          "core/post-featured-image"
+        ]
+      },
+      "accessibility": [
+        "Do not make captions too pale.",
+        "Provide complete alt text or artwork descriptions.",
+        "Keep inquiry actions visible without hovering."
+      ],
+      "antiPatterns": [
+        "anchor-and-rope nautical motifs",
+        "overly pale blue text",
+        "cropped artwork details as primary images",
+        "empty luxury spacing on mobile"
+      ],
+      "promptSeeds": [
+        "airy coastal gallery theme",
+        "sunlit artwork archive",
+        "sea glass WordPress design",
+        "quiet lifestyle shop"
+      ]
+    },
+    {
+      "id": "learning-lab",
+      "name": "Learning Lab",
+      "status": "ready",
+      "summary": "An optimistic education style with approachable color, clear lesson structure, and strong progress cues.",
+      "tags": [
+        "education",
+        "kids",
+        "courses",
+        "friendly"
+      ],
+      "bestFor": [
+        "online courses",
+        "after-school programs",
+        "learning resources",
+        "workshop libraries"
+      ],
+      "avoidFor": [
+        "luxury fashion",
+        "hard editorial",
+        "serious legal services"
+      ],
+      "mood": [
+        "curious",
+        "supportive",
+        "clear",
+        "energetic"
+      ],
+      "designDna": [
+        "progress markers",
+        "lesson cards",
+        "friendly illustration",
+        "clear calls to action",
+        "chunked content"
+      ],
+      "palette": {
+        "strategy": "Bright but not chaotic learning colors on a clean base.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Notebook",
+            "slug": "notebook",
+            "hex": "#FFFDF6"
+          },
+          {
+            "role": "contrast",
+            "name": "Pencil Lead",
+            "slug": "pencil-lead",
+            "hex": "#202C39"
+          },
+          {
+            "role": "primary",
+            "name": "Lesson Blue",
+            "slug": "lesson-blue",
+            "hex": "#2F80ED"
+          },
+          {
+            "role": "secondary",
+            "name": "Success Green",
+            "slug": "success-green",
+            "hex": "#27AE60"
+          },
+          {
+            "role": "accent",
+            "name": "Idea Yellow",
+            "slug": "idea-yellow",
+            "hex": "#F2C94C"
+          }
+        ],
+        "contrastNotes": "Use Pencil Lead for text. Yellow needs dark text. Do not use color alone for progress."
+      },
+      "typography": {
+        "display": "Rounded sans: Nunito, Atkinson Hyperlegible, system-ui, sans-serif.",
+        "body": "Accessible sans with generous line-height.",
+        "accent": "Mono or tabular sans for progress, scores, and step numbers.",
+        "scale": "Friendly headings and clear small labels.",
+        "usage": "Maintain grown-up clarity even when the audience is young."
+      },
+      "layout": {
+        "density": "Comfortable.",
+        "grid": "Course, module, and lesson cards with visible status and sequence.",
+        "rhythm": "Chunked learning rhythm with summaries, exercises, and next actions.",
+        "navigation": "Course path, search, account, and progress access are primary.",
+        "hero": "Start-learning hero with course path or featured module visible."
+      },
+      "imagery": {
+        "subjects": [
+          "students",
+          "hands-on projects",
+          "simple illustrations",
+          "classroom materials",
+          "progress visuals"
+        ],
+        "treatment": "Bright and specific, not generic stock classrooms.",
+        "crop": "Use stable card crops and diagrams that remain readable on mobile."
+      },
+      "components": {
+        "buttons": "Clear action buttons with icons for start, continue, complete, and download.",
+        "cards": "Lesson cards show level, time, status, and next step.",
+        "forms": "Quiz or signup forms need clear feedback and friendly errors.",
+        "special": [
+          "course path",
+          "progress badge",
+          "exercise card",
+          "resource download"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Create block styles for lesson cards and progress callouts.",
+          "Register bright palette colors but define accessible text pairings.",
+          "Use pattern categories for courses, exercises, resources, and profiles."
+        ],
+        "patternIdeas": [
+          "course path hero",
+          "lesson grid",
+          "exercise steps",
+          "resource library"
+        ],
+        "templateFocus": [
+          "front-page",
+          "course",
+          "lesson",
+          "archive"
+        ],
+        "blockStyleTargets": [
+          "core/query",
+          "core/list",
+          "core/details",
+          "core/buttons",
+          "core/group"
+        ]
+      },
+      "accessibility": [
+        "Use readable type sizes for children and adults.",
+        "Give progress states text labels and ARIA-friendly structure.",
+        "Avoid overly animated learning feedback."
+      ],
+      "antiPatterns": [
+        "primary-color chaos",
+        "childish type for adult learning",
+        "progress shown only by color",
+        "dense instructions without steps"
+      ],
+      "promptSeeds": [
+        "learning lab WordPress theme",
+        "friendly course card system",
+        "progress-focused education site",
+        "clear workshop resource library"
+      ]
+    },
+    {
+      "id": "nonprofit-field-report",
+      "name": "Nonprofit Field Report",
+      "status": "ready",
+      "summary": "A mission-driven storytelling style with real-world evidence, donation clarity, and practical impact reporting.",
+      "tags": [
+        "nonprofit",
+        "impact",
+        "reporting",
+        "storytelling"
+      ],
+      "bestFor": [
+        "nonprofits",
+        "advocacy groups",
+        "NGOs",
+        "impact reports"
+      ],
+      "avoidFor": [
+        "luxury retail",
+        "playful portfolios",
+        "developer tools"
+      ],
+      "mood": [
+        "credible",
+        "human",
+        "urgent",
+        "grounded"
+      ],
+      "designDna": [
+        "field photography",
+        "impact metrics",
+        "donation pathways",
+        "story cards",
+        "report sections"
+      ],
+      "palette": {
+        "strategy": "Humanitarian neutrals with trust blue, action orange, and field green.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Report Paper",
+            "slug": "report-paper",
+            "hex": "#FAF7EF"
+          },
+          {
+            "role": "contrast",
+            "name": "Field Ink",
+            "slug": "field-ink",
+            "hex": "#1D252C"
+          },
+          {
+            "role": "primary",
+            "name": "Trust Blue",
+            "slug": "trust-blue",
+            "hex": "#245D8F"
+          },
+          {
+            "role": "secondary",
+            "name": "Field Green",
+            "slug": "field-green-impact",
+            "hex": "#4F7D55"
+          },
+          {
+            "role": "accent",
+            "name": "Action Orange",
+            "slug": "action-orange",
+            "hex": "#D96B27"
+          }
+        ],
+        "contrastNotes": "Use Field Ink for most text. Action Orange should be reserved for donation and urgency states."
+      },
+      "typography": {
+        "display": "Humanist sans or sturdy serif: Source Sans 3, Public Sans, Georgia, serif.",
+        "body": "Readable sans for reports and donation flows.",
+        "accent": "Tabular numerals for metrics and impact data.",
+        "scale": "Strong section headings, readable stories, large impact figures.",
+        "usage": "Use typography to separate story, evidence, and action."
+      },
+      "layout": {
+        "density": "Medium.",
+        "grid": "Story modules, impact metrics, donation panels, and report sections.",
+        "rhythm": "Alternates human stories with proof and action.",
+        "navigation": "Donate, programs, impact, stories, and get involved stay visible.",
+        "hero": "Real field image plus direct mission statement and donation or volunteer action."
+      },
+      "imagery": {
+        "subjects": [
+          "real program work",
+          "communities",
+          "staff",
+          "field sites",
+          "documents and maps"
+        ],
+        "treatment": "Respectful documentary photography with consent-conscious framing.",
+        "crop": "Avoid exploitative close crops; provide context and dignity."
+      },
+      "components": {
+        "buttons": "Donation action is prominent; secondary actions remain visible but quieter.",
+        "cards": "Story cards include program, location, date, and clear read path.",
+        "forms": "Donation and volunteer forms are transparent, short, and trust-building.",
+        "special": [
+          "impact metrics",
+          "donation panel",
+          "program map",
+          "annual report section"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Create strong button presets for donation actions.",
+          "Add block styles for impact metric groups and program story cards.",
+          "Use reusable patterns for report sections and calls to action."
+        ],
+        "patternIdeas": [
+          "mission hero",
+          "impact metric band",
+          "program story grid",
+          "donation callout"
+        ],
+        "templateFocus": [
+          "front-page",
+          "single",
+          "page",
+          "archive"
+        ],
+        "blockStyleTargets": [
+          "core/buttons",
+          "core/query",
+          "core/image",
+          "core/table",
+          "core/group"
+        ]
+      },
+      "accessibility": [
+        "Ensure donation forms are accessible and transparent.",
+        "Use real text for impact numbers instead of image graphics.",
+        "Avoid color-only urgency cues."
+      ],
+      "antiPatterns": [
+        "generic sad stock imagery",
+        "hidden donation fees",
+        "metric graphics without text equivalents",
+        "mission statements with no action path"
+      ],
+      "promptSeeds": [
+        "nonprofit field report theme",
+        "impact storytelling WordPress site",
+        "donation-focused mission design",
+        "humanitarian program archive"
+      ]
+    },
+    {
+      "id": "creator-newsletter",
+      "name": "Creator Newsletter",
+      "status": "ready",
+      "summary": "A personality-led publishing style for creators who need subscription clarity, archive depth, and a strong voice.",
+      "tags": [
+        "newsletter",
+        "creator",
+        "membership",
+        "publishing"
+      ],
+      "bestFor": [
+        "independent newsletters",
+        "podcasters",
+        "solo consultants",
+        "membership communities"
+      ],
+      "avoidFor": [
+        "large institutions",
+        "image-heavy galleries",
+        "formal ecommerce catalogs"
+      ],
+      "mood": [
+        "personal",
+        "smart",
+        "direct",
+        "inviting"
+      ],
+      "designDna": [
+        "strong author voice",
+        "subscription modules",
+        "archive lists",
+        "recommendation cards",
+        "light personal branding"
+      ],
+      "palette": {
+        "strategy": "Clean reading base with one strong brand color and one warm subscribe accent.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Inbox White",
+            "slug": "inbox-white",
+            "hex": "#FFFCF6"
+          },
+          {
+            "role": "contrast",
+            "name": "Letter Ink",
+            "slug": "letter-ink",
+            "hex": "#202020"
+          },
+          {
+            "role": "primary",
+            "name": "Brand Blue",
+            "slug": "brand-blue",
+            "hex": "#3157A4"
+          },
+          {
+            "role": "secondary",
+            "name": "Soft Note",
+            "slug": "soft-note",
+            "hex": "#ECE7DB"
+          },
+          {
+            "role": "accent",
+            "name": "Subscribe Coral",
+            "slug": "subscribe-coral",
+            "hex": "#D65A4A"
+          }
+        ],
+        "contrastNotes": "Use Letter Ink for copy. Subscribe Coral should be tested for filled buttons and paired with light text only when darkened enough."
+      },
+      "typography": {
+        "display": "Opinionated serif or clean sans depending on persona: Georgia, Charter, Inter, system-ui.",
+        "body": "Readable longform stack tuned for email-like clarity.",
+        "accent": "Mono or small sans for issue numbers and membership labels.",
+        "scale": "Article-friendly scale with a stronger homepage title.",
+        "usage": "Make the creator's voice the brand; avoid overly designed typography."
+      },
+      "layout": {
+        "density": "Comfortable.",
+        "grid": "Homepage balances subscribe panel, latest issues, and topic archives.",
+        "rhythm": "Newsletter sections feel like issues and recurring columns.",
+        "navigation": "Start here, archive, topics, about, and subscribe.",
+        "hero": "Creator promise, author signal, and email capture visible immediately."
+      },
+      "imagery": {
+        "subjects": [
+          "author portraits",
+          "desk details",
+          "topic imagery",
+          "simple diagrams"
+        ],
+        "treatment": "Personal and specific, not generic laptop stock.",
+        "crop": "Use modest author images; do not let portraits dominate archive usability."
+      },
+      "components": {
+        "buttons": "Subscribe button is primary and repeated at useful decision points.",
+        "cards": "Issue cards show title, date, topic, and excerpt.",
+        "forms": "Email signup forms are short, privacy-aware, and visually confident.",
+        "special": [
+          "subscribe panel",
+          "issue archive",
+          "recommendation block",
+          "membership tier"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Set strong paragraph and link styles for post content.",
+          "Create reusable subscribe and issue-list patterns.",
+          "Style query loops for compact chronological archives."
+        ],
+        "patternIdeas": [
+          "creator subscribe hero",
+          "latest issues",
+          "topic archive",
+          "membership offer"
+        ],
+        "templateFocus": [
+          "home",
+          "single",
+          "archive",
+          "page"
+        ],
+        "blockStyleTargets": [
+          "core/query",
+          "core/post-content",
+          "core/buttons",
+          "core/search",
+          "core/group"
+        ]
+      },
+      "accessibility": [
+        "Make signup forms obvious and labeled.",
+        "Avoid hiding archive access behind novelty layouts.",
+        "Use visible link states in long posts."
+      ],
+      "antiPatterns": [
+        "newsletter signup popups blocking content",
+        "vague personal branding",
+        "hard-to-find archive",
+        "tiny email form disclaimers"
+      ],
+      "promptSeeds": [
+        "creator newsletter WordPress theme",
+        "subscription-first personal publication",
+        "independent issue archive",
+        "author-led membership site"
+      ]
+    },
+    {
+      "id": "product-docs",
+      "name": "Product Docs",
+      "status": "ready",
+      "summary": "A documentation style that prioritizes search, navigation, code readability, and task completion.",
+      "tags": [
+        "documentation",
+        "developer",
+        "product",
+        "knowledge-base"
+      ],
+      "bestFor": [
+        "developer docs",
+        "knowledge bases",
+        "support centers",
+        "API references"
+      ],
+      "avoidFor": [
+        "campaign landing pages",
+        "visual portfolios",
+        "restaurant sites"
+      ],
+      "mood": [
+        "useful",
+        "precise",
+        "fast",
+        "structured"
+      ],
+      "designDna": [
+        "persistent navigation",
+        "search-first access",
+        "code blocks",
+        "version labels",
+        "clear task pages"
+      ],
+      "palette": {
+        "strategy": "Readable light interface with dark text, blue links, and subtle code surfaces.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Docs White",
+            "slug": "docs-white",
+            "hex": "#FFFFFF"
+          },
+          {
+            "role": "contrast",
+            "name": "Docs Ink",
+            "slug": "docs-ink",
+            "hex": "#17202A"
+          },
+          {
+            "role": "primary",
+            "name": "Link Blue",
+            "slug": "docs-link-blue",
+            "hex": "#0B63CE"
+          },
+          {
+            "role": "secondary",
+            "name": "Code Surface",
+            "slug": "code-surface",
+            "hex": "#F1F5F9"
+          },
+          {
+            "role": "accent",
+            "name": "Success",
+            "slug": "docs-success",
+            "hex": "#168A52"
+          }
+        ],
+        "contrastNotes": "Use Docs Ink on Docs White and Code Surface. Link Blue should remain visibly underlined or otherwise distinct."
+      },
+      "typography": {
+        "display": "Neutral sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif.",
+        "body": "Same sans with strong line-height and readable small text.",
+        "accent": "Mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace.",
+        "scale": "Practical documentation scale with strong h2/h3 and compact code.",
+        "usage": "Code, tables, and step lists should receive as much attention as headings."
+      },
+      "layout": {
+        "density": "Dense but organized.",
+        "grid": "Sidebar navigation, main content, and optional in-page table of contents.",
+        "rhythm": "Task-based sections with short paragraphs and frequent anchors.",
+        "navigation": "Search, version switcher, docs sections, and next/previous links.",
+        "hero": "Docs home begins with search and common tasks, not a brand campaign."
+      },
+      "imagery": {
+        "subjects": [
+          "product screenshots",
+          "diagrams",
+          "code examples",
+          "workflow screenshots"
+        ],
+        "treatment": "Functional and inspectable, with annotations when helpful.",
+        "crop": "Screenshots must retain relevant UI detail and not be overly cropped."
+      },
+      "components": {
+        "buttons": "Utility buttons for copy, next, previous, and feedback use icons where appropriate.",
+        "cards": "Task cards are compact and grouped by user goal.",
+        "forms": "Search and feedback forms are short and highly accessible.",
+        "special": [
+          "copyable code block",
+          "version switcher",
+          "callout",
+          "table of contents"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Style core/code, core/preformatted, core/table, and core/details extensively.",
+          "Create narrow contentSize for docs pages with wideSize for examples.",
+          "Use block styles for note, warning, tip, and API reference panels."
+        ],
+        "patternIdeas": [
+          "docs search home",
+          "task card grid",
+          "callout set",
+          "article navigation"
+        ],
+        "templateFocus": [
+          "home",
+          "single-doc",
+          "archive",
+          "search"
+        ],
+        "blockStyleTargets": [
+          "core/code",
+          "core/preformatted",
+          "core/table",
+          "core/details",
+          "core/search"
+        ]
+      },
+      "accessibility": [
+        "Make code copy controls keyboard accessible.",
+        "Do not rely on color only for callout type.",
+        "Keep navigation usable at high zoom."
+      ],
+      "antiPatterns": [
+        "marketing hero before search",
+        "tiny code samples",
+        "overly decorative diagrams",
+        "hidden current-version state"
+      ],
+      "promptSeeds": [
+        "product documentation WordPress theme",
+        "search-first docs portal",
+        "developer reference design",
+        "task-based knowledge base"
+      ]
+    },
+    {
+      "id": "festival-poster",
+      "name": "Festival Poster",
+      "status": "ready",
+      "summary": "A bold event style that turns lineups, dates, and ticketing into a poster-like system that still works as a website.",
+      "tags": [
+        "event",
+        "music",
+        "poster",
+        "culture"
+      ],
+      "bestFor": [
+        "music festivals",
+        "film festivals",
+        "arts events",
+        "conference parties"
+      ],
+      "avoidFor": [
+        "documentation",
+        "financial services",
+        "clinical content"
+      ],
+      "mood": [
+        "loud",
+        "social",
+        "urgent",
+        "memorable"
+      ],
+      "designDna": [
+        "poster hierarchy",
+        "lineup typography",
+        "date badges",
+        "ticket calls to action",
+        "color bands"
+      ],
+      "palette": {
+        "strategy": "Poster paper with saturated purple, orange, and mint for lineup energy.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Poster Paper",
+            "slug": "poster-paper",
+            "hex": "#FFF3D6"
+          },
+          {
+            "role": "contrast",
+            "name": "Poster Ink",
+            "slug": "poster-ink",
+            "hex": "#201321"
+          },
+          {
+            "role": "primary",
+            "name": "Stage Purple",
+            "slug": "stage-purple",
+            "hex": "#5B2A86"
+          },
+          {
+            "role": "secondary",
+            "name": "Sunset Orange",
+            "slug": "sunset-orange",
+            "hex": "#F06C38"
+          },
+          {
+            "role": "accent",
+            "name": "Mint Wristband",
+            "slug": "mint-wristband",
+            "hex": "#8AE0C5"
+          }
+        ],
+        "contrastNotes": "Use Poster Ink for small text. Mint needs dark text; orange should be used in large areas or darkened for buttons."
+      },
+      "typography": {
+        "display": "Condensed poster sans or expressive slab: Oswald, Archivo Black, Rockwell, sans-serif.",
+        "body": "Plain sans for logistics, FAQs, and ticket copy.",
+        "accent": "Mono or condensed sans for dates, venues, and pass types.",
+        "scale": "Very large lineup names, medium event details, compact metadata.",
+        "usage": "Protect schedule and ticket details from the poster energy."
+      },
+      "layout": {
+        "density": "High on lineup sections, calmer on ticketing and FAQ.",
+        "grid": "Poster sections, lineup grids, day schedules, and ticket cards.",
+        "rhythm": "Rhythmic bands that feel like a stack of event posters.",
+        "navigation": "Lineup, schedule, tickets, venue, FAQ always visible.",
+        "hero": "Event name, dates, place, headliners, and ticket button in the first viewport."
+      },
+      "imagery": {
+        "subjects": [
+          "performers",
+          "crowds",
+          "venues",
+          "poster artwork",
+          "stage details"
+        ],
+        "treatment": "High-energy color, sharp faces, and honest event context.",
+        "crop": "Performer images need clear identification; lineup text must not depend on image readability."
+      },
+      "components": {
+        "buttons": "Ticket buttons are bold, repeated, and separated from decorative poster labels.",
+        "cards": "Artist and ticket cards use stable hierarchy and clear metadata.",
+        "forms": "Newsletter and ticket forms are cleaner than poster sections.",
+        "special": [
+          "lineup wall",
+          "day schedule",
+          "ticket tiers",
+          "venue map"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Create reusable lineup and schedule patterns with stable mobile behavior.",
+          "Register large display font sizes but pair with readable logistics styles.",
+          "Add color band group styles for day or stage sections."
+        ],
+        "patternIdeas": [
+          "poster hero",
+          "lineup grid",
+          "day schedule",
+          "ticket tiers"
+        ],
+        "templateFocus": [
+          "front-page",
+          "event",
+          "archive",
+          "page"
+        ],
+        "blockStyleTargets": [
+          "core/group",
+          "core/query",
+          "core/table",
+          "core/buttons",
+          "core/cover"
+        ]
+      },
+      "accessibility": [
+        "Do not use lineup type sizes so extreme that names wrap incoherently.",
+        "Keep schedule tables readable on mobile.",
+        "Ensure ticket actions are not hidden in poster art."
+      ],
+      "antiPatterns": [
+        "image-only lineup posters",
+        "overlapping text that breaks at mobile widths",
+        "hard-to-find date and place",
+        "flashing stage effects"
+      ],
+      "promptSeeds": [
+        "festival poster WordPress theme",
+        "music event lineup site",
+        "bold ticketing homepage",
+        "poster-like schedule design"
+      ]
+    },
+    {
+      "id": "financial-trust",
+      "name": "Financial Trust",
+      "status": "ready",
+      "summary": "A professional services style that signals stability, privacy, and clear decision support without looking generic.",
+      "tags": [
+        "finance",
+        "professional",
+        "trust",
+        "services"
+      ],
+      "bestFor": [
+        "financial advisors",
+        "accountants",
+        "insurance agencies",
+        "consultancies"
+      ],
+      "avoidFor": [
+        "youth brands",
+        "experimental art sites",
+        "nightlife events"
+      ],
+      "mood": [
+        "stable",
+        "measured",
+        "private",
+        "competent"
+      ],
+      "designDna": [
+        "clear service pathways",
+        "trust signals",
+        "subtle charts",
+        "calm forms",
+        "low-drama color"
+      ],
+      "palette": {
+        "strategy": "Deep navy and crisp white with green and copper accents for growth and warmth.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Ledger White",
+            "slug": "ledger-white",
+            "hex": "#FAFBFC"
+          },
+          {
+            "role": "contrast",
+            "name": "Trust Navy",
+            "slug": "trust-navy",
+            "hex": "#13293D"
+          },
+          {
+            "role": "primary",
+            "name": "Advisory Blue",
+            "slug": "advisory-blue",
+            "hex": "#1F5E89"
+          },
+          {
+            "role": "secondary",
+            "name": "Growth Green",
+            "slug": "growth-green",
+            "hex": "#3F7D5C"
+          },
+          {
+            "role": "accent",
+            "name": "Copper",
+            "slug": "copper",
+            "hex": "#B46B3A"
+          }
+        ],
+        "contrastNotes": "Use Trust Navy for text. Copper is for detail and calls to attention, not long text."
+      },
+      "typography": {
+        "display": "Professional serif or sans: Source Serif 4, Merriweather, Inter, system-ui.",
+        "body": "Clear sans for service and compliance copy.",
+        "accent": "Tabular numerals for data, rates, and financial figures.",
+        "scale": "Conservative scale with readable service pages and strong callouts.",
+        "usage": "Use restraint; credibility comes from clarity and consistency."
+      },
+      "layout": {
+        "density": "Medium.",
+        "grid": "Service pathway cards, proof bands, article lists, and consultation forms.",
+        "rhythm": "Predictable sections with high trust and low surprise.",
+        "navigation": "Services, who we help, resources, about, and consultation action.",
+        "hero": "Clear audience and outcome statement with consultation path and trust marker."
+      },
+      "imagery": {
+        "subjects": [
+          "real team portraits",
+          "client contexts",
+          "subtle data visuals",
+          "office details"
+        ],
+        "treatment": "Professional, bright, specific, and not staged handshake stock.",
+        "crop": "Prioritize faces, team credibility, and context over abstract finance imagery."
+      },
+      "components": {
+        "buttons": "Consultation buttons are clear, calm, and repeated at decision points.",
+        "cards": "Service cards communicate audience, problem, and next step.",
+        "forms": "Forms feel secure, minimal, and explicit about privacy.",
+        "special": [
+          "trust proof band",
+          "advisor profile",
+          "resource article list",
+          "consultation form"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Style buttons and forms for confidence rather than flash.",
+          "Create reusable service, proof, and advisor profile patterns.",
+          "Set table styles for comparison and resource pages."
+        ],
+        "patternIdeas": [
+          "consultation hero",
+          "service pathways",
+          "advisor profiles",
+          "resource index"
+        ],
+        "templateFocus": [
+          "front-page",
+          "page",
+          "single",
+          "archive"
+        ],
+        "blockStyleTargets": [
+          "core/buttons",
+          "core/group",
+          "core/query",
+          "core/table",
+          "core/quote"
+        ]
+      },
+      "accessibility": [
+        "Avoid low-contrast gray body copy.",
+        "Make privacy and compliance notes readable.",
+        "Use clear labels and validation on inquiry forms."
+      ],
+      "antiPatterns": [
+        "generic blue gradient hero",
+        "handshake stock photos",
+        "tiny disclaimers",
+        "overconfident investment visuals"
+      ],
+      "promptSeeds": [
+        "financial advisor WordPress theme",
+        "trustworthy professional services site",
+        "consultation-focused finance design",
+        "clear resource library"
+      ]
+    },
+    {
+      "id": "architectural-atelier",
+      "name": "Architectural Atelier",
+      "status": "ready",
+      "summary": "A disciplined architecture style with plan-like grids, project photography, and precise technical storytelling.",
+      "tags": [
+        "architecture",
+        "studio",
+        "portfolio",
+        "minimal"
+      ],
+      "bestFor": [
+        "architecture firms",
+        "interior studios",
+        "industrial designers",
+        "planning consultancies"
+      ],
+      "avoidFor": [
+        "children's programs",
+        "nightlife events",
+        "high-energy retail"
+      ],
+      "mood": [
+        "precise",
+        "spatial",
+        "quiet",
+        "technical"
+      ],
+      "designDna": [
+        "plan grids",
+        "large project images",
+        "project metadata",
+        "thin rules",
+        "spatial white space"
+      ],
+      "palette": {
+        "strategy": "Drawing-board neutrals with blueprint blue and material rust accents.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Drawing Board",
+            "slug": "drawing-board",
+            "hex": "#F4F3EF"
+          },
+          {
+            "role": "contrast",
+            "name": "Graphite Line",
+            "slug": "graphite-line",
+            "hex": "#202326"
+          },
+          {
+            "role": "primary",
+            "name": "Blueprint",
+            "slug": "blueprint",
+            "hex": "#235789"
+          },
+          {
+            "role": "secondary",
+            "name": "Concrete Warm",
+            "slug": "concrete-warm",
+            "hex": "#C6C0B4"
+          },
+          {
+            "role": "accent",
+            "name": "Brick Dust",
+            "slug": "brick-dust",
+            "hex": "#A55233"
+          }
+        ],
+        "contrastNotes": "Use Graphite Line for text. Concrete Warm is a surface, not a text color."
+      },
+      "typography": {
+        "display": "Precise sans: Neue Haas-style, Helvetica Neue, Inter, Arial, sans-serif.",
+        "body": "Readable sans with strong metadata treatment.",
+        "accent": "Mono for project facts, coordinates, dimensions, and drawing labels.",
+        "scale": "Restrained headings and crisp project titles.",
+        "usage": "Use alignment, measure, and metadata instead of decorative typography."
+      },
+      "layout": {
+        "density": "Sparse-to-medium.",
+        "grid": "Project grid, plan-like two-column details, and full-width image sequences.",
+        "rhythm": "Gallery-like pacing with precise metadata breaks.",
+        "navigation": "Projects, practice, writing, studio, contact.",
+        "hero": "Project image or studio statement with visible project index link."
+      },
+      "imagery": {
+        "subjects": [
+          "completed spaces",
+          "plans",
+          "models",
+          "material details",
+          "construction process"
+        ],
+        "treatment": "Accurate color, strong geometry, no heavy filters.",
+        "crop": "Respect spatial context; avoid crops that make architecture unreadable."
+      },
+      "components": {
+        "buttons": "Understated text links or thin-outline controls.",
+        "cards": "Project cards show image, type, location, year, and status.",
+        "forms": "Inquiry forms are minimal but clear about project scope.",
+        "special": [
+          "project facts",
+          "drawing caption",
+          "material palette",
+          "studio profile"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Create project archive query patterns with consistent image ratios.",
+          "Define mono metadata font styles and small caption presets.",
+          "Add image styles for plans, details, and full-bleed project photography."
+        ],
+        "patternIdeas": [
+          "project hero",
+          "project facts sidebar",
+          "studio profile",
+          "material detail grid"
+        ],
+        "templateFocus": [
+          "front-page",
+          "single-project",
+          "archive",
+          "page"
+        ],
+        "blockStyleTargets": [
+          "core/query",
+          "core/image",
+          "core/gallery",
+          "core/group",
+          "core/post-featured-image"
+        ]
+      },
+      "accessibility": [
+        "Do not make metadata so small it becomes decorative.",
+        "Provide text descriptions for plans and diagrams.",
+        "Keep thin-line UI controls visible."
+      ],
+      "antiPatterns": [
+        "blank whitespace without purpose",
+        "tiny navigation",
+        "cropped contextless interiors",
+        "generic luxury staging"
+      ],
+      "promptSeeds": [
+        "architectural studio WordPress theme",
+        "precise project portfolio",
+        "plan-grid visual system",
+        "minimal architecture archive"
+      ]
+    },
+    {
+      "id": "vintage-newspaper",
+      "name": "Vintage Newspaper",
+      "status": "ready",
+      "summary": "A newsprint-inspired publication style with columns, mastheads, bylines, and archival warmth.",
+      "tags": [
+        "news",
+        "archive",
+        "retro",
+        "publication"
+      ],
+      "bestFor": [
+        "local papers",
+        "history projects",
+        "archives",
+        "community journalism"
+      ],
+      "avoidFor": [
+        "modern SaaS products",
+        "luxury portfolios",
+        "highly visual shops"
+      ],
+      "mood": [
+        "historic",
+        "civic",
+        "textured",
+        "familiar"
+      ],
+      "designDna": [
+        "masthead",
+        "column grids",
+        "bylines",
+        "rules and boxes",
+        "archival texture"
+      ],
+      "palette": {
+        "strategy": "Aged paper and dark ink with muted blue and red section markers.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Aged Paper",
+            "slug": "aged-paper",
+            "hex": "#F1E6CF"
+          },
+          {
+            "role": "contrast",
+            "name": "Printer Ink",
+            "slug": "printer-ink",
+            "hex": "#1B1712"
+          },
+          {
+            "role": "primary",
+            "name": "Press Blue",
+            "slug": "press-blue",
+            "hex": "#2F5873"
+          },
+          {
+            "role": "secondary",
+            "name": "Section Red",
+            "slug": "section-red",
+            "hex": "#9D332E"
+          },
+          {
+            "role": "accent",
+            "name": "Faded Tan",
+            "slug": "faded-tan",
+            "hex": "#D2B48C"
+          }
+        ],
+        "contrastNotes": "Use Printer Ink for body copy. Muted section colors should label content, not replace readable text."
+      },
+      "typography": {
+        "display": "Newspaper serif: Georgia, Libre Baskerville, Times New Roman, serif.",
+        "body": "Readable serif with strong line-height, not cramped historical mimicry.",
+        "accent": "Condensed sans or small caps for departments, dates, and labels.",
+        "scale": "Masthead-sized title, strong article heads, compact bylines.",
+        "usage": "Reference newspapers without reproducing inaccessible dense print."
+      },
+      "layout": {
+        "density": "Medium-high.",
+        "grid": "Responsive newspaper columns that collapse cleanly on mobile.",
+        "rhythm": "Rules, departments, and bylines structure the page.",
+        "navigation": "Sections, latest, archive, search, and submit tips.",
+        "hero": "Masthead and lead story package rather than a generic hero."
+      },
+      "imagery": {
+        "subjects": [
+          "archival photos",
+          "local scenes",
+          "illustrations",
+          "document scans",
+          "portraits"
+        ],
+        "treatment": "Subtle grain and captions; preserve historical context.",
+        "crop": "Do not crop archival images in ways that distort their meaning."
+      },
+      "components": {
+        "buttons": "Plain text or boxed buttons styled like classifieds.",
+        "cards": "Story cards resemble article packages with byline, section, and excerpt.",
+        "forms": "Search and tip forms need modern usability under vintage styling.",
+        "special": [
+          "masthead",
+          "lead story package",
+          "classified block",
+          "archive timeline"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Style query loops into lead story and section package patterns.",
+          "Add global styles for captions, bylines, and separators.",
+          "Create archive templates that emphasize date and section browsing."
+        ],
+        "patternIdeas": [
+          "newspaper masthead",
+          "lead story grid",
+          "section package",
+          "archive timeline"
+        ],
+        "templateFocus": [
+          "home",
+          "single",
+          "archive",
+          "search"
+        ],
+        "blockStyleTargets": [
+          "core/query",
+          "core/separator",
+          "core/post-title",
+          "core/post-date",
+          "core/search"
+        ]
+      },
+      "accessibility": [
+        "Do not make columns too narrow for modern reading.",
+        "Keep archive search prominent.",
+        "Use captions and alt text for historical images."
+      ],
+      "antiPatterns": [
+        "illegibly dense columns",
+        "fake paper stains behind body copy",
+        "novelty type for paragraphs",
+        "image-only scanned articles"
+      ],
+      "promptSeeds": [
+        "vintage newspaper WordPress theme",
+        "local journalism masthead",
+        "archival newsprint design",
+        "responsive column publication"
+      ]
+    },
+    {
+      "id": "translucent-ai",
+      "name": "Translucent AI",
+      "status": "ready",
+      "summary": "A contemporary AI/product style using luminous surfaces, clear product evidence, and restrained translucency.",
+      "tags": [
+        "ai",
+        "product",
+        "startup",
+        "modern"
+      ],
+      "bestFor": [
+        "AI products",
+        "automation tools",
+        "data platforms",
+        "technical startups"
+      ],
+      "avoidFor": [
+        "public-service forms",
+        "heritage archives",
+        "artisan shops"
+      ],
+      "mood": [
+        "advanced",
+        "clear",
+        "luminous",
+        "controlled"
+      ],
+      "designDna": [
+        "translucent panels",
+        "product screenshots",
+        "data gradients",
+        "precise icons",
+        "evidence-first claims"
+      ],
+      "palette": {
+        "strategy": "Cool light base with deep ink, electric blue, violet, and mint accents.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Luminous White",
+            "slug": "luminous-white",
+            "hex": "#F7FAFF"
+          },
+          {
+            "role": "contrast",
+            "name": "Deep Interface",
+            "slug": "deep-interface",
+            "hex": "#101828"
+          },
+          {
+            "role": "primary",
+            "name": "Electric Blue",
+            "slug": "electric-blue",
+            "hex": "#2563EB"
+          },
+          {
+            "role": "secondary",
+            "name": "Violet Model",
+            "slug": "violet-model",
+            "hex": "#7C3AED"
+          },
+          {
+            "role": "accent",
+            "name": "Mint Compute",
+            "slug": "mint-compute",
+            "hex": "#2DD4BF"
+          }
+        ],
+        "contrastNotes": "Use Deep Interface for text. Translucent surfaces must have solid fallback backgrounds and tested contrast."
+      },
+      "typography": {
+        "display": "Modern sans: Inter, Satoshi-like, system-ui, sans-serif.",
+        "body": "Crisp sans with readable paragraphs and product UI labels.",
+        "accent": "Mono for model names, parameters, and technical metrics.",
+        "scale": "Clear product scale with strong h1 and compact proof modules.",
+        "usage": "Make the product feel current without replacing clarity with gloss."
+      },
+      "layout": {
+        "density": "Medium.",
+        "grid": "Product panels, use-case grids, workflow diagrams, and proof sections.",
+        "rhythm": "Evidence-led sections that alternate screenshot, benefit, and detail.",
+        "navigation": "Product, use cases, docs, pricing, and contact or start action.",
+        "hero": "Actual product state or workflow visible immediately, with claims grounded nearby."
+      },
+      "imagery": {
+        "subjects": [
+          "real product screenshots",
+          "workflow diagrams",
+          "data visualizations",
+          "integration screens"
+        ],
+        "treatment": "Sharp, inspectable, not dark blurred abstract shapes.",
+        "crop": "Screenshots must remain legible on desktop and mobile previews."
+      },
+      "components": {
+        "buttons": "Crisp filled buttons with icons for start, demo, and docs.",
+        "cards": "Use translucent panels sparingly over solid surfaces, never over complex imagery.",
+        "forms": "Demo forms should be compact, high contrast, and trust-building.",
+        "special": [
+          "workflow panel",
+          "model metric strip",
+          "integration grid",
+          "security note"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Define gradient presets only for large surfaces, not text.",
+          "Add block styles for product panels and metric strips.",
+          "Register mono font presets for technical metadata."
+        ],
+        "patternIdeas": [
+          "product evidence hero",
+          "workflow diagram",
+          "use-case grid",
+          "security proof band"
+        ],
+        "templateFocus": [
+          "front-page",
+          "page",
+          "single",
+          "archive"
+        ],
+        "blockStyleTargets": [
+          "core/group",
+          "core/image",
+          "core/buttons",
+          "core/table",
+          "core/code"
+        ]
+      },
+      "accessibility": [
+        "Do not put small text on glass effects without solid contrast.",
+        "Avoid motion that implies intelligence but obscures product details.",
+        "Label diagrams and screenshots clearly."
+      ],
+      "antiPatterns": [
+        "abstract gradient-only hero",
+        "fake dashboard cards",
+        "low-contrast translucent text",
+        "AI buzzwords without product evidence"
+      ],
+      "promptSeeds": [
+        "translucent AI product WordPress theme",
+        "evidence-first AI startup site",
+        "luminous product interface",
+        "clear automation platform design"
+      ]
+    },
+    {
+      "id": "neighborhood-restaurant",
+      "name": "Neighborhood Restaurant",
+      "status": "ready",
+      "summary": "A practical local restaurant style that foregrounds menu, hours, reservations, and appetizing real photography.",
+      "tags": [
+        "restaurant",
+        "local",
+        "hospitality",
+        "food"
+      ],
+      "bestFor": [
+        "cafes",
+        "diners",
+        "neighborhood restaurants",
+        "bars with food"
+      ],
+      "avoidFor": [
+        "formal academic publishing",
+        "developer products",
+        "luxury monochrome portfolios"
+      ],
+      "mood": [
+        "welcoming",
+        "direct",
+        "lively",
+        "local"
+      ],
+      "designDna": [
+        "menu-first access",
+        "hours and location",
+        "reservation action",
+        "food photography",
+        "local character"
+      ],
+      "palette": {
+        "strategy": "Warm dining-room base with chalk, tomato, and bottle green accents.",
+        "tokens": [
+          {
+            "role": "base",
+            "name": "Table Paper",
+            "slug": "table-paper",
+            "hex": "#FFF4E0"
+          },
+          {
+            "role": "contrast",
+            "name": "Chalkboard",
+            "slug": "chalkboard",
+            "hex": "#1E2A24"
+          },
+          {
+            "role": "primary",
+            "name": "Tomato Sauce",
+            "slug": "tomato-sauce",
+            "hex": "#C93F2D"
+          },
+          {
+            "role": "secondary",
+            "name": "Bottle Green",
+            "slug": "bottle-green",
+            "hex": "#2F5D46"
+          },
+          {
+            "role": "accent",
+            "name": "Butter",
+            "slug": "butter",
+            "hex": "#F2C14E"
+          }
+        ],
+        "contrastNotes": "Use Chalkboard for text. Butter requires dark text. Tomato is strong for reservations and specials."
+      },
+      "typography": {
+        "display": "Warm serif or hand-painted sans used carefully: Cooper-like, Fraunces, Georgia, sans-serif.",
+        "body": "Clear sans for menu, hours, ordering, and contact.",
+        "accent": "Mono or tabular numerals for prices, hours, and phone numbers.",
+        "scale": "Readable practical scale with a characterful restaurant name.",
+        "usage": "Menu readability beats decorative restaurant atmosphere."
+      },
+      "layout": {
+        "density": "Medium.",
+        "grid": "Menu sections, photo bands, reservation callouts, and location details.",
+        "rhythm": "Practical top sections followed by atmosphere and story.",
+        "navigation": "Menu, reservations, order, hours, location, events.",
+        "hero": "Food or dining-room image with menu and reservation actions immediately visible."
+      },
+      "imagery": {
+        "subjects": [
+          "signature dishes",
+          "interior",
+          "staff",
+          "bar or counter",
+          "neighborhood exterior"
+        ],
+        "treatment": "Real, appetizing, well-lit, and specific to the restaurant.",
+        "crop": "Show food clearly; avoid moody crops that obscure the dish."
+      },
+      "components": {
+        "buttons": "Reservation and order buttons are clear, repeated, and mobile-friendly.",
+        "cards": "Menu cards or sections show item, description, price, and dietary labels.",
+        "forms": "Reservation forms are short, direct, and error-resistant.",
+        "special": [
+          "menu section",
+          "today's special",
+          "hours and location",
+          "reservation band"
+        ]
+      },
+      "wordpress": {
+        "themeJsonPresetHints": [
+          "Create reusable menu, hours, and reservation patterns.",
+          "Style tables and lists for menus without relying on image PDFs.",
+          "Use button presets for reservation, order, and call actions."
+        ],
+        "patternIdeas": [
+          "restaurant hero",
+          "menu section",
+          "hours location block",
+          "specials band"
+        ],
+        "templateFocus": [
+          "front-page",
+          "menu",
+          "page",
+          "single"
+        ],
+        "blockStyleTargets": [
+          "core/list",
+          "core/table",
+          "core/buttons",
+          "core/image",
+          "core/group"
+        ]
+      },
+      "accessibility": [
+        "Do not use PDF-only menus.",
+        "Keep phone, hours, address, and reservation controls easy to find.",
+        "Label dietary and allergen information with text, not just icons."
+      ],
+      "antiPatterns": [
+        "full-screen atmospheric hero with no menu link",
+        "menu text inside images",
+        "illegible chalk fonts",
+        "hidden hours"
+      ],
+      "promptSeeds": [
+        "neighborhood restaurant WordPress theme",
+        "menu-first local cafe site",
+        "warm reservation homepage",
+        "practical food hospitality design"
+      ]
+    }
+  ]
+}
