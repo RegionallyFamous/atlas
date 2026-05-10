@@ -8,7 +8,6 @@ const state = {
   sort: "name",
   shuffleSeed: 0,
   activePrompt: "",
-  generatedOnly: false,
   generatedMockups: new Set()
 };
 
@@ -20,7 +19,7 @@ const els = {
   searchInput: document.querySelector("#searchInput"),
   eraSelect: document.querySelector("#eraSelect"),
   sortSelect: document.querySelector("#sortSelect"),
-  generatedOnlyButton: document.querySelector("#generatedOnlyButton"),
+  searchButton: document.querySelector("#searchButton"),
   categoryFilters: document.querySelector("#categoryFilters"),
   energyFilters: document.querySelector("#energyFilters"),
   shuffleButton: document.querySelector("#shuffleButton"),
@@ -313,8 +312,7 @@ function applyFilters() {
     const categoryMatch = state.category === "All" || item.category === state.category;
     const energyMatch = state.energy === "All" || item.energy === state.energy;
     const eraMatch = state.era === "All" || item.era === state.era;
-    const generatedMatch = !state.generatedOnly || state.generatedMockups.has(item.id);
-    return categoryMatch && energyMatch && eraMatch && generatedMatch && matchesSearch(item, query);
+    return categoryMatch && energyMatch && eraMatch && matchesSearch(item, query);
   });
   state.filtered = sortItems(filtered);
   renderGallery();
@@ -364,8 +362,6 @@ function renderGallery() {
   const coverage = state.aesthetics.length ? Math.round((generatedCount / state.aesthetics.length) * 100) : 0;
   els.coverageLabel.textContent = `${generatedCount.toLocaleString()} / ${state.aesthetics.length.toLocaleString()}`;
   els.coverageBar.style.width = `${coverage}%`;
-  els.generatedOnlyButton.classList.toggle("active", state.generatedOnly);
-  els.generatedOnlyButton.setAttribute("aria-pressed", String(state.generatedOnly));
   els.emptyState.hidden = state.filtered.length > 0;
   els.gallery.hidden = state.filtered.length === 0;
   els.gallery.innerHTML = state.filtered.map(cardMarkup).join("");
@@ -419,7 +415,6 @@ function resetFilters() {
   state.search = "";
   state.sort = "name";
   state.shuffleSeed = 0;
-  state.generatedOnly = false;
   els.searchInput.value = "";
   els.sortSelect.value = "name";
   renderFilters();
@@ -481,8 +476,8 @@ function bindEvents() {
     applyFilters();
   });
 
-  els.generatedOnlyButton.addEventListener("click", () => {
-    state.generatedOnly = !state.generatedOnly;
+  els.searchButton.addEventListener("click", () => {
+    state.search = els.searchInput.value;
     state.shuffleSeed = 0;
     applyFilters();
   });
@@ -499,7 +494,7 @@ async function init() {
   bindEvents();
   const [response, manifestResponse] = await Promise.all([
     fetch("../data/design-aesthetics.json?v=20260510-layout"),
-    fetch("../data/imagegen-mockup-prompts.json?v=20260510-layout")
+    fetch("../data/mockup-manifest.json?v=20260510-search")
   ]);
   if (!response.ok) {
     throw new Error(`Unable to load aesthetics database: ${response.status}`);

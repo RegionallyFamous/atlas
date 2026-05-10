@@ -353,7 +353,7 @@ function generatedImageMockupMarkup(item) {
         <a class="primary-action" href="${imageUrl}" target="_blank" rel="noopener">Open Image</a>
       </section>
       <figure class="generated-frame">
-        <img src="${imageUrl}" alt="${escapeHtml(item.name)} WordPress homepage mockup generated with imagegen">
+        <img src="${imageUrl}" alt="${escapeHtml(item.name)} WordPress homepage mockup">
       </figure>
       <section class="split-showcase generated-notes">
         <div class="palette-panel">
@@ -394,7 +394,7 @@ function renderPicker() {
 async function init() {
   const [response, manifestResponse] = await Promise.all([
     fetch("../data/design-aesthetics.json"),
-    fetch("../data/imagegen-mockup-prompts.json")
+    fetch("../data/mockup-manifest.json")
   ]);
   if (!response.ok) throw new Error(`Could not load aesthetics: ${response.status}`);
   if (manifestResponse.ok) {

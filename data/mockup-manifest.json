@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "purpose": "Imagegen prompts for high-fidelity WordPress homepage mockups for every Aesthetic Atlas entry.",
+  "purpose": "Prompt manifest for high-fidelity WordPress homepage mockups for every Aesthetic Atlas entry.",
   "outputDirectory": "assets/aesthetic-mockups",
   "generatedCount": 390,
   "totalCount": 390,

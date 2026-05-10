@@ -265,8 +265,9 @@ main {
   margin-top: 8px;
   color: var(--ink);
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.2vw, 3.65rem);
-  line-height: 0.88;
+  font-size: clamp(1.85rem, 2.45vw, 3rem);
+  line-height: 0.95;
+  overflow-wrap: anywhere;
 }
 
 .spotlight-rail {
@@ -1500,7 +1501,7 @@ button:focus-visible,
   border-radius: 999px;
   background: rgba(214, 255, 63, 0.94);
   color: #14130f;
-  content: "imagegen";
+  content: "mockup";
   filter: none;
   font-family: var(--font-mono);
   font-size: 0.55rem;

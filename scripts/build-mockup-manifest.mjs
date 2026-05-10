@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const dataPath = path.join("data", "design-aesthetics.json");
-const outPath = path.join("data", "imagegen-mockup-prompts.json");
+const outPath = path.join("data", "mockup-manifest.json");
 const db = JSON.parse(fs.readFileSync(dataPath, "utf8"));
 
 function promptFor(item) {
@@ -34,7 +34,7 @@ if (fs.existsSync(assetsDir)) {
 
 const manifest = {
   schemaVersion: "1.0.0",
-  purpose: "Imagegen prompts for high-fidelity WordPress homepage mockups for every Aesthetic Atlas entry.",
+  purpose: "Prompt manifest for high-fidelity WordPress homepage mockups for every Aesthetic Atlas entry.",
   outputDirectory: "assets/aesthetic-mockups",
   generatedCount: existing.size,
   totalCount: db.aesthetics.length,
