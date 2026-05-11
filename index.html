@@ -69,6 +69,10 @@
               <input id="searchInput" type="search" placeholder="Swiss, vaporwave, restaurant, neon, civic...">
             </label>
             <label class="select-wrap">
+              <span>Category</span>
+              <select id="categorySelect"></select>
+            </label>
+            <label class="select-wrap">
               <span>Era</span>
               <select id="eraSelect"></select>
             </label>
@@ -91,11 +95,6 @@
                 <span aria-hidden="true">↺</span>
               </button>
             </div>
-          </section>
-
-          <section class="filter-row" aria-label="Categories">
-            <p class="filter-label">Categories</p>
-            <div id="categoryFilters" class="chips"></div>
           </section>
 
           <section class="filter-row" aria-label="Energy">

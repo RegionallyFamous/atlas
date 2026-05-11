@@ -17,10 +17,10 @@ const els = {
   coverageBar: document.querySelector("#coverageBar"),
   spotlightRail: document.querySelector("#spotlightRail"),
   searchInput: document.querySelector("#searchInput"),
+  categorySelect: document.querySelector("#categorySelect"),
   eraSelect: document.querySelector("#eraSelect"),
   sortSelect: document.querySelector("#sortSelect"),
   searchButton: document.querySelector("#searchButton"),
-  categoryFilters: document.querySelector("#categoryFilters"),
   energyFilters: document.querySelector("#energyFilters"),
   shuffleButton: document.querySelector("#shuffleButton"),
   resetButton: document.querySelector("#resetButton"),
@@ -257,8 +257,11 @@ function renderFilters() {
   const energies = uniq(state.aesthetics.map((item) => item.energy));
   const eras = uniq(state.aesthetics.map((item) => item.era));
 
-  renderFilterChips(els.categoryFilters, categories, state.category, "category");
   renderFilterChips(els.energyFilters, energies, state.energy, "energy");
+  els.categorySelect.innerHTML = ["All", ...categories].map((category) => {
+    const selected = category === state.category ? " selected" : "";
+    return `<option value="${escapeHtml(category)}"${selected}>${escapeHtml(category)}</option>`;
+  }).join("");
   els.eraSelect.innerHTML = ["All", ...eras].map((era) => {
     const selected = era === state.era ? " selected" : "";
     return `<option value="${escapeHtml(era)}"${selected}>${escapeHtml(era)}</option>`;
@@ -416,6 +419,7 @@ function resetFilters() {
   state.sort = "name";
   state.shuffleSeed = 0;
   els.searchInput.value = "";
+  els.categorySelect.value = "All";
   els.sortSelect.value = "name";
   renderFilters();
   applyFilters();
@@ -434,6 +438,12 @@ async function copyPrompt() {
 function bindEvents() {
   els.searchInput.addEventListener("input", (event) => {
     state.search = event.target.value;
+    state.shuffleSeed = 0;
+    applyFilters();
+  });
+
+  els.categorySelect.addEventListener("change", (event) => {
+    state.category = event.target.value;
     state.shuffleSeed = 0;
     applyFilters();
   });
