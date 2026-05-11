@@ -18,10 +18,10 @@ const els = {
   spotlightRail: document.querySelector("#spotlightRail"),
   searchInput: document.querySelector("#searchInput"),
   categorySelect: document.querySelector("#categorySelect"),
+  energySelect: document.querySelector("#energySelect"),
   eraSelect: document.querySelector("#eraSelect"),
   sortSelect: document.querySelector("#sortSelect"),
   searchButton: document.querySelector("#searchButton"),
-  energyFilters: document.querySelector("#energyFilters"),
   shuffleButton: document.querySelector("#shuffleButton"),
   resetButton: document.querySelector("#resetButton"),
   emptyState: document.querySelector("#emptyState"),
@@ -245,22 +245,18 @@ function uniq(values) {
   return [...new Set(values)].sort((a, b) => a.localeCompare(b));
 }
 
-function renderFilterChips(container, values, activeValue, type) {
-  container.innerHTML = ["All", ...values].map((value) => {
-    const active = value === activeValue ? " active" : "";
-    return `<button class="chip${active}" type="button" data-filter-type="${type}" data-filter-value="${escapeHtml(value)}">${escapeHtml(value)}</button>`;
-  }).join("");
-}
-
 function renderFilters() {
   const categories = uniq(state.aesthetics.map((item) => item.category));
   const energies = uniq(state.aesthetics.map((item) => item.energy));
   const eras = uniq(state.aesthetics.map((item) => item.era));
 
-  renderFilterChips(els.energyFilters, energies, state.energy, "energy");
   els.categorySelect.innerHTML = ["All", ...categories].map((category) => {
     const selected = category === state.category ? " selected" : "";
     return `<option value="${escapeHtml(category)}"${selected}>${escapeHtml(category)}</option>`;
+  }).join("");
+  els.energySelect.innerHTML = ["All", ...energies].map((energy) => {
+    const selected = energy === state.energy ? " selected" : "";
+    return `<option value="${escapeHtml(energy)}"${selected}>${escapeHtml(energy)}</option>`;
   }).join("");
   els.eraSelect.innerHTML = ["All", ...eras].map((era) => {
     const selected = era === state.era ? " selected" : "";
@@ -420,6 +416,7 @@ function resetFilters() {
   state.shuffleSeed = 0;
   els.searchInput.value = "";
   els.categorySelect.value = "All";
+  els.energySelect.value = "All";
   els.sortSelect.value = "name";
   renderFilters();
   applyFilters();
@@ -448,6 +445,12 @@ function bindEvents() {
     applyFilters();
   });
 
+  els.energySelect.addEventListener("change", (event) => {
+    state.energy = event.target.value;
+    state.shuffleSeed = 0;
+    applyFilters();
+  });
+
   els.eraSelect.addEventListener("change", (event) => {
     state.era = event.target.value;
     state.shuffleSeed = 0;
@@ -461,15 +464,6 @@ function bindEvents() {
   });
 
   document.addEventListener("click", (event) => {
-    const chip = event.target.closest("[data-filter-type]");
-    if (chip) {
-      state[chip.dataset.filterType] = chip.dataset.filterValue;
-      state.shuffleSeed = 0;
-      renderFilters();
-      applyFilters();
-      return;
-    }
-
     const card = event.target.closest(".card[data-id], [data-open-detail][data-id]");
     if (card) {
       showDetail(card.dataset.id);
